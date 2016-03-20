@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyMe.Client", "CertifyMe.Client\CertifyMe.Client.csproj", "{9D42C1D2-9AE0-4263-BF5B-C94C121273FC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{68FDF511-B078-4298-BA96-25DEB2BE3BE5} = {68FDF511-B078-4298-BA96-25DEB2BE3BE5}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyMe.Data", "CertifyMe.Data\CertifyMe.Data.csproj", "{AFB54BD1-0C1D-4462-AA4C-CE0A88CC4AD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CertifyMe.Service", "CertifyMe.Service\CertifyMe.Service.csproj", "{68FDF511-B078-4298-BA96-25DEB2BE3BE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{AFB54BD1-0C1D-4462-AA4C-CE0A88CC4AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFB54BD1-0C1D-4462-AA4C-CE0A88CC4AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFB54BD1-0C1D-4462-AA4C-CE0A88CC4AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68FDF511-B078-4298-BA96-25DEB2BE3BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68FDF511-B078-4298-BA96-25DEB2BE3BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68FDF511-B078-4298-BA96-25DEB2BE3BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68FDF511-B078-4298-BA96-25DEB2BE3BE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
