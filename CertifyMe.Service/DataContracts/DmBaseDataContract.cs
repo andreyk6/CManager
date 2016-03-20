@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace CertifyMe.Service
+namespace CertifyMe.Service.DataContracts
 {
     [DataContract]
     public class DmBaseDataContract
