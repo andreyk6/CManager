@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using CertifyMe.Data;
+using CertifyMe.Service.DataContracts;
 
 namespace CertifyMe.Service
 {
@@ -25,12 +25,16 @@ namespace CertifyMe.Service
             }
         }
 
+        public List<User> GetAll()
+        {
+            return Data.User.Items.Values.Select(u => u.ToUserContract()).ToList();
+        }
+
         public User GetById(Guid id)
         {
             if (Data.User.Items.Keys.Contains(id))
             {
-                var user = Data.User.Items[id];
-                return User.ToUserModel(user);
+                return Data.User.Items[id].ToUserContract();
             }
             else {
                 return null;

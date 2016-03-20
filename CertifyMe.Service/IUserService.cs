@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CertifyMe.Service.DataContracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -23,5 +24,8 @@ namespace CertifyMe.Service
 
         [OperationContract]
         bool Update(User user);
+
+        [OperationContract]
+        List<User> GetAll();
     }
 }
