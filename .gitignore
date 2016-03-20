@@ -210,3 +210,13 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+CertifyMe.Client/Service References/ServiceReference1/CertifyMe.Client.ServiceReference1.User.datasource
+CertifyMe.Client/Service References/ServiceReference1/configuration.svcinfo
+CertifyMe.Client/Service References/ServiceReference1/configuration91.svcinfo
+CertifyMe.Client/Service References/ServiceReference1/Reference.cs
+CertifyMe.Client/Service References/ServiceReference1/Reference.svcmap
+CertifyMe.Client/Service References/ServiceReference1/UserService.disco
+CertifyMe.Client/Service References/ServiceReference1/UserService.wsdl
+CertifyMe.Client/Service References/ServiceReference1/UserService.xsd
+CertifyMe.Client/Service References/ServiceReference1/UserService1.xsd
+CertifyMe.Client/Service References/ServiceReference1/UserService2.xsd

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CertifyMe.Client.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace CertifyMe.Client
         public MainWindow()
         {
             InitializeComponent();
+            User user = new User();
+            user.Age = 10;
+            user.FirstName = "Andrii";
+            user.LastName = "Konovalenko";
+            var userService = new UserServiceClient();
+            user.Id = userService.Add(user);
+
+            var userFromServer = userService.GetById(user.Id);
+            //var user = userService; 
         }
     }
 }
