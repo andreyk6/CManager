@@ -63,23 +63,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="UserService.svc" />
-    <Content Include="UserService2.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DmBaseDataContract.cs" />
-    <Compile Include="IUserService2.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="DataContracts\Certificate.cs" />
+    <Compile Include="DataContracts\EventComment.cs" />
+    <Compile Include="DataContracts\Company.cs" />
+    <Compile Include="DataContracts\DmBaseDataContract.cs" />
+    <Compile Include="DataContracts\DomainToContractExtension.cs" />
+    <Compile Include="DataContracts\Event.cs" />
+    <Compile Include="DataContracts\EventRegistration.cs" />
+    <Compile Include="DataContracts\User.cs" />
     <Compile Include="UserService.svc.cs">
       <DependentUpon>UserService.svc</DependentUpon>
     </Compile>
     <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserService2.svc.cs">
-      <DependentUpon>UserService2.svc</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

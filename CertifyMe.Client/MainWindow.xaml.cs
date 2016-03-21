@@ -21,18 +21,22 @@ namespace CertifyMe.Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        UserServiceClient userService = new UserServiceClient();
+
         public MainWindow()
         {
             InitializeComponent();
-            User user = new User();
-            user.Age = 10;
-            user.FirstName = "Andrii";
-            user.LastName = "Konovalenko";
-            var userService = new UserServiceClient();
-            user.Id = userService.Add(user);
-
-            var userFromServer = userService.GetById(user.Id);
-            //var user = userService; 
+            for (int i = 0; i < 10; i++)
+            {
+                User user = new User();
+                user.Age = 18 + i;
+                user.FirstName = "User1";
+                user.LastName = "Generated" + i;
+                user.Id = userService.Add(user);
+            }
+            var users = userService.GetAll();
+            users = null;
+            users = null;
         }
     }
 }

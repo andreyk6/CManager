@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Certificate.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Comment.cs" />
+    <Compile Include="EventComment.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="DmBase.cs" />
     <Compile Include="Event.cs" />
