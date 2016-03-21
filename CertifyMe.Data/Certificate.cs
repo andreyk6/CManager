@@ -38,6 +38,11 @@ namespace CertifyMe.Data
                 _eventId = eventId;
             else
                 throw new KeyNotFoundException("Event not found");
+
+            if (!User.Items[userId].Events.Contains(Event.Items[eventId]))
+            {
+                throw new Exception("Event do not contains such user");
+            }
         }
     }
 }
