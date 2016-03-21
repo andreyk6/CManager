@@ -50,28 +50,6 @@ namespace CertifyMe.Service
             return null;
         }
 
-        public List<Event> GetUserEvents(Guid userId)
-        {
-            if (Data.User.Items.Keys.Contains(userId))
-            {
-                return Data.User.Items[userId].Events.Select(e => e.ToEventContract()).ToList();
-            }
-            return null;
-        }
-
-        public bool RegisterUser(Guid userId, Guid eventId)
-        {
-            try
-            {
-                new Data.EventRegistration(userId, eventId);
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-
         public bool RemoveById(Guid id)
         {
             if (Data.Event.Items.Keys.Contains(id))
@@ -95,6 +73,43 @@ namespace CertifyMe.Service
             }
 
             return false;
+        }
+
+        public bool RegisterUser(Guid userId, Guid eventId)
+        {
+            try
+            {
+                new Data.EventRegistration(userId, eventId);
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool UnregisterUser(Guid userId, Guid eventId)
+        {
+            var eventRegistration = Data.EventRegistration.Items.Values.Where(r => r.Event.Id == eventId && r.User.Id == userId).Single();
+            if (eventRegistration != null)
+            {
+                return Data.EventRegistration.Items.Remove(eventRegistration.Id);
+            }
+            return false;
+        }
+
+        public List<EventComment> GetComments(Guid eventId)
+        {
+            return Data.EventComment.Items.Values.Where(c => c.Event.Id == eventId).Select(c => c.ToEventCommentContract()).ToList();
+        }
+
+        public List<Event> GetUserEvents(Guid userId)
+        {
+            if (Data.User.Items.Keys.Contains(userId))
+            {
+                return Data.User.Items[userId].Events.Select(e => e.ToEventContract()).ToList();
+            }
+            return null;
         }
     }
 }

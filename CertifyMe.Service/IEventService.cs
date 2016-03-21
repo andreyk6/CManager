@@ -13,12 +13,15 @@ namespace CertifyMe.Service
     public interface IEventService:IService<Event>
     {
         [OperationContract]
-        List<Event> GetUserEvents(Guid userId);
-
-        [OperationContract]
         bool RegisterUser(Guid userId, Guid eventId);
 
         [OperationContract]
         bool UnregisterUser(Guid userId, Guid eventId);
+
+        [OperationContract]
+        List<EventComment> GetComments(Guid eventId);
+
+        [OperationContract]
+        List<Event> GetUserEvents(Guid userId);
     }
 }
