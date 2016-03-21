@@ -25,10 +25,19 @@ namespace CertifyMe.Data
         public string Description { get; set; }
         public int Place { get; set; }
 
-        public Certificate(User owner, Event @event) : base()
+        public Certificate(User owner, Event @event) : this(owner.Id, @event.Id) { }
+
+        public Certificate(Guid userId, Guid eventId) : base()
         {
-            Owner = owner;
-            Event = @event;
+            if (User.Items.ContainsKey(userId))
+                _ownerId = userId;
+            else
+                throw new KeyNotFoundException("User not found");
+
+            if (Event.Items.ContainsKey(eventId))
+                _eventId = eventId;
+            else
+                throw new KeyNotFoundException("Event not found");
         }
     }
 }

@@ -22,10 +22,26 @@ namespace CertifyMe.Data
 
         public string Text { get; set; }
 
-        public EventComment(User commentator, Event @event ) : base()
+        public EventComment(User commentator, Event @event) : this(commentator.Id, @event.Id) { }
+        public EventComment(Guid userId, Guid eventId) : base()
         {
-            Commentator = commentator;
-            Event = @event;
+            if (User.Items.ContainsKey(userId))
+            {
+                _commentatorId = userId;
+            }
+            else
+            {
+                throw new KeyNotFoundException("User not found");
+            }
+
+            if (Event.Items.ContainsKey(eventId))
+            {
+                _eventId = eventId;
+            }
+            else
+            {
+                throw new KeyNotFoundException("Event not found");
+            }
         }
     }
 }

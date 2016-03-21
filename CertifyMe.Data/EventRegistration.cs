@@ -21,10 +21,26 @@ namespace CertifyMe.Data
             set { _eventId = value.Id; }
         }
 
-        public EventRegistration(User user, Event @event) : base()
+        public EventRegistration(User user, Event @event) : this(user.Id, @event.Id) { }
+        public EventRegistration(Guid userId, Guid eventId) : base()
         {
-            User = user;
-            Event = @event;
+            if (User.Items.ContainsKey(userId))
+            {
+                _userId = userId;
+            }
+            else
+            {
+                throw new KeyNotFoundException("User not found");
+            }
+
+            if (Event.Items.ContainsKey(eventId))
+            {
+                _eventId = eventId;
+            }
+            else
+            {
+                throw new KeyNotFoundException("Event not found");
+            }
         }
     }
 }

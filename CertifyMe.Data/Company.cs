@@ -17,9 +17,18 @@ namespace CertifyMe.Data
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public Company(User owner) : base()
+        public Company(User owner) : this(owner.Id) { }
+
+        public Company(Guid userId) : base()
         {
-            Owner = owner;
+            if (User.Items.ContainsKey(userId))
+            {
+                _ownerId = userId;
+            }
+            else
+            {
+                throw new KeyNotFoundException("User not found");
+            }
         }
 
         public List<Event> Events
