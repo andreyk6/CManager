@@ -11,7 +11,7 @@ namespace CertifyMe.Service.DataContracts
     public class Event : DmBaseDataContract
     {
         [DataMember]
-        private Guid CompanyId { get; set; }
+        public Guid CompanyId { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]

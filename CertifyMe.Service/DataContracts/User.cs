@@ -21,18 +21,5 @@ namespace CertifyMe.Service.DataContracts
             LastName = lastName;
             Age = age;
         }
-
-        public List<Company> Companies
-        {
-            get { return Data.Company.Items.Values.Where(c => c.Owner.Id == Id).Select(c => c.ToCompanyContract()).ToList(); }
-        }
-        public List<Event> Events
-        {
-            get { return Data.Event.Items.Values.Where(e => e.Participants.Select(p => p.Id).Contains(Id)).Select(e => e.ToEventContract()).ToList(); }
-        }
-        public List<Certificate> Certificates
-        {
-            get { return Data.Certificate.Items.Values.Where(c => c.Owner.Id == Id).Select(c=>c.ToCertificateContract()).ToList(); }
-        }
     }
 }
