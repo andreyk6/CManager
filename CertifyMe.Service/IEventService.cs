@@ -23,5 +23,8 @@ namespace CertifyMe.Service
 
         [OperationContract]
         List<Event> GetUserEvents(Guid userId);
+
+        [OperationContract]
+        List<Event> GetCompanyEvents(Guid companyId);
     }
 }

@@ -111,5 +111,14 @@ namespace CertifyMe.Service
             }
             return null;
         }
+
+        public List<Event> GetCompanyEvents(Guid companyId)
+        {
+            if (Data.Company.Items.Keys.Contains(companyId))
+            {
+                return Data.Company.Items[companyId].Events.Select(e => e.ToEventContract()).ToList();
+            }
+            return null;
+        }
     }
 }

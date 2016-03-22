@@ -62,6 +62,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CompanyService.svc" />
     <Content Include="EventService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config">
@@ -69,6 +70,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompanyService.svc.cs">
+      <DependentUpon>CompanyService.svc</DependentUpon>
+    </Compile>
     <Compile Include="DataContracts\Certificate.cs" />
     <Compile Include="DataContracts\EventComment.cs" />
     <Compile Include="DataContracts\Company.cs" />
@@ -80,6 +84,7 @@
     <Compile Include="EventService.svc.cs">
       <DependentUpon>EventService.svc</DependentUpon>
     </Compile>
+    <Compile Include="ICompanyService.cs" />
     <Compile Include="IEventService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="UserService.svc.cs">
