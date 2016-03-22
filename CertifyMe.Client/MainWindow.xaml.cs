@@ -1,4 +1,5 @@
-﻿using CertifyMe.Client.ServiceReference1;
+﻿using CertifyMe.Client.EventServiceReference;
+using CertifyMe.Client.UserServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace CertifyMe.Client
     public partial class MainWindow : Window
     {
         UserServiceClient userService = new UserServiceClient();
+        EventServiceClient eventService = new EventServiceClient();
 
         public MainWindow()
         {
@@ -30,13 +32,17 @@ namespace CertifyMe.Client
             {
                 User user = new User();
                 user.Age = 18 + i;
-                user.FirstName = "User1";
+                user.FirstName = "User";
                 user.LastName = "Generated" + i;
                 user.Id = userService.Add(user);
             }
             var users = userService.GetAll();
-            users = null;
-            users = null;
+
+            //eventService.RegisterUser()
+            
+
+            //users = null;
+            //users = null;
         }
     }
 }

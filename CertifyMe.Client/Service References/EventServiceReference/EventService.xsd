@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:36528/EventService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Event">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DmBaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyId" type="ser:guid" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Event" nillable="true" type="tns:Event" />
+  <xs:complexType name="DmBaseDataContract">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreationTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DmBaseDataContract" nillable="true" type="tns:DmBaseDataContract" />
+  <xs:complexType name="ArrayOfEvent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvent" nillable="true" type="tns:ArrayOfEvent" />
+  <xs:complexType name="ArrayOfEventComment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EventComment" nillable="true" type="tns:EventComment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEventComment" nillable="true" type="tns:ArrayOfEventComment" />
+  <xs:complexType name="EventComment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DmBaseDataContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CommentatorId" type="ser:guid" />
+          <xs:element minOccurs="0" name="EventId" type="ser:guid" />
+          <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EventComment" nillable="true" type="tns:EventComment" />
+</xs:schema>
