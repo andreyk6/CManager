@@ -58,6 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Service References\CompanyServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\EventServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,6 +109,19 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\CompanyServiceReference\CertifyMe.Client.CompanyServiceReference.Company.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CompanyServiceReference\CompanyService.wsdl" />
+    <None Include="Service References\CompanyServiceReference\CompanyService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CompanyServiceReference\CompanyService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CompanyServiceReference\CompanyService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\EventServiceReference\CertifyMe.Client.EventServiceReference.Event.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -141,6 +159,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CompanyServiceReference\" />
     <WCFMetadataStorage Include="Service References\EventServiceReference\" />
     <WCFMetadataStorage Include="Service References\UserServiceReference\" />
   </ItemGroup>
@@ -170,6 +189,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EventServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CompanyServiceReference\CompanyService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CompanyServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CompanyServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CompanyServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

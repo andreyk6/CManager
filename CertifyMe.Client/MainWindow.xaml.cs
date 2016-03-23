@@ -1,19 +1,8 @@
-﻿using CertifyMe.Client.EventServiceReference;
+﻿using System.Windows;
+using CertifyMe.Client.CompanyServiceReference;
+using CertifyMe.Client.EventServiceReference;
 using CertifyMe.Client.UserServiceReference;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CertifyMe.Client
 {
@@ -24,25 +13,87 @@ namespace CertifyMe.Client
     {
         UserServiceClient userService = new UserServiceClient();
         EventServiceClient eventService = new EventServiceClient();
+        CompanyServiceClient companyService = new CompanyServiceClient();
 
         public MainWindow()
         {
             InitializeComponent();
-            for (int i = 0; i < 10; i++)
-            {
-                User user = new User();
-                user.Age = 18 + i;
-                user.FirstName = "User";
-                user.LastName = "Generated" + i;
-                user.Id = userService.Add(user);
-            }
+
+            CreateUsers();
             var users = userService.GetAll();
 
-            //eventService.RegisterUser()
-            
+            CreateCompanyForEachUser(users);
+            var companies = companyService.GetAll();
 
+            CreateEventForEachCompany(companies);
+            var events = eventService.GetAll();
+
+            RegisterEachUserOnEachEvent(users, events);
+            foreach(var user in users)
+            {
+                var userEvents = eventService.GetUserEvents(user.Id);
+            }
             //users = null;
             //users = null;
+        }
+
+        private void RegisterEachUserOnEachEvent(User[] users, Event[] events)
+        {
+            for (int i = 0; i < events.Length; i++)
+            {
+                for (int j = 0; j < users.Length; j++)
+                {
+                    var eventCompanyOwnerId = companyService.GetById(events[0].CompanyId).OwnerId;
+                    if (users[j].Id != eventCompanyOwnerId)
+                    {
+                        eventService.RegisterUser(users[j].Id, events[i].Id);
+                    }
+                }
+            }
+        }
+
+        private void CreateEventForEachCompany(Company[] companies)
+        {
+            for (int i = 0; i < companies.Length; i++)
+            {
+                var @event = new Event()
+                {
+                    CompanyId = companies[i].Id,
+                    Name = "Event " + i,
+                    Description = "Event description",
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Now.Add(new TimeSpan())
+                };
+                eventService.Add(@event);
+            }
+        }
+
+        private void CreateCompanyForEachUser(User[] users)
+        {
+            for (var i = 0; i < users.Length; i++)
+            {
+                var company = new Company()
+                {
+                    OwnerId = users[i].Id,
+                    Name = "Company " + i,
+                    Description = "Desciption"
+                };
+                companyService.Add(company);
+            }
+        }
+
+        private void CreateUsers()
+        {
+            for (var i = 0; i < 10; i++)
+            {
+                var user = new User()
+                {
+                    Age = 18 + i,
+                    FirstName = "User",
+                    LastName = "Generated" + i,
+                };
+                userService.Add(user);
+            }
         }
     }
 }
