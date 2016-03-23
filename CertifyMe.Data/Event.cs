@@ -41,7 +41,7 @@ namespace CertifyMe.Data
 
         public List<User> Participants
         {
-            get { return User.Items.Values.Where(_ => _.Events.Contains(this)).ToList(); }
+            get { return EventRegistration.Items.Values.Where(r => r.Event == this).Select(r => r.User).ToList(); }
         }
         public List<Certificate> Certificates
         {
