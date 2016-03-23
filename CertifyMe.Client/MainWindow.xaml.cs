@@ -43,7 +43,7 @@ namespace CertifyMe.Client
             {
                 for (int j = 0; j < users.Length; j++)
                 {
-                    var eventCompanyOwnerId = companyService.GetById(events[0].CompanyId).OwnerId;
+                    var eventCompanyOwnerId = companyService.GetById(events[i].CompanyId).OwnerId;
                     if (users[j].Id != eventCompanyOwnerId)
                     {
                         eventService.RegisterUser(users[j].Id, events[i].Id);
