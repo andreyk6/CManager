@@ -43,6 +43,7 @@ namespace CertifyMe.Service.DataContracts
             return new Event()
             {
                 Id = @event.Id,
+                CompanyId = @event.Company.Id,
                 CreationTime = @event.CreationTime,
                 StartDate = @event.StartDate,
                 EndDate = @event.EndDate,
@@ -56,8 +57,8 @@ namespace CertifyMe.Service.DataContracts
             return new EventComment()
             {
                 Id = eventComment.Id,
-                CreationTime = eventComment.CreationTime,
                 EventId = eventComment.Event.Id,
+                CreationTime = eventComment.CreationTime,
                 CommentatorId = eventComment.Commentator.Id,
                 Text = eventComment.Text
             };
