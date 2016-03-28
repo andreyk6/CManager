@@ -23,10 +23,10 @@ namespace CertifyMe.Client.View
     {
         LoginPageViewModel model;
 
-        public LoginPage()
+        public LoginPage(IWindowViewModel window)
         {
             InitializeComponent();
-            model = new LoginPageViewModel(this);
+            model = new LoginPageViewModel(this, window);
             this.DataContext = model;
         }
 

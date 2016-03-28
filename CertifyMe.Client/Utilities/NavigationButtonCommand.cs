@@ -16,7 +16,7 @@ namespace CertifyMe.Client.Utilities
     public delegate void ExecuteDelegate();
     public delegate bool CanExecuteDelegate();
 
-    public class NavigationButtonCommand<T> : ICommand where T : ViewModelBase
+    public class NavigationButtonCommand<T> : ICommand where T : PageViewModel
     {
 
         private T _model;
@@ -61,9 +61,9 @@ namespace CertifyMe.Client.Utilities
     {
         private CanExecuteDelegate _canExecute;
         private ExecuteDelegate _execute;
-        private ViewModelBase _viewModel;
+        private IPageViewModel _viewModel;
         public event EventHandler CanExecuteChanged;
-        public NavigationButtonCommand(ViewModelBase viewModel, ExecuteDelegate execute, CanExecuteDelegate canExecute)
+        public NavigationButtonCommand(IPageViewModel viewModel, ExecuteDelegate execute, CanExecuteDelegate canExecute)
         {
             _viewModel = viewModel;
             _execute = execute;

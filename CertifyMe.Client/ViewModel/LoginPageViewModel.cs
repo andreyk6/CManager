@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace CertifyMe.Client.ViewModel
 {
-    public class LoginPageViewModel : ViewModelBase
+    public class LoginPageViewModel : PageViewModel
     {
         private UserServiceClient _userService;
 
@@ -44,7 +44,7 @@ namespace CertifyMe.Client.ViewModel
             }
         }
 
-        public LoginPageViewModel(Page page) : base(page)
+        public LoginPageViewModel(Page page, IWindowViewModel window) : base(page, window)
         {
             _userService = new UserServiceClient();
             SignIn = new NavigationButtonCommand(this, _signInExecute, _signInCanExecute);
@@ -54,7 +54,7 @@ namespace CertifyMe.Client.ViewModel
         public NavigationButtonCommand<LoginPageViewModel> Register { get; set; }
         private void _registerExecute(LoginPageViewModel model)
         {
-            model.Page.NavigationService.Navigate(new RegistrationPage());
+            Window.CurrentView = new RegistrationPage();
         }
         private bool _registerCanExecute(LoginPageViewModel model)
         {
@@ -92,7 +92,7 @@ namespace CertifyMe.Client.ViewModel
             bool authResult = true;
             if (authResult)
             {
-                Page.NavigationService.Navigate(new UserHomePage());
+                Window.CurrentView = new UserHomePage();
             }
             else
             {

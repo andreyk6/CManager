@@ -63,10 +63,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Utilities\NavigationButtonCommand.cs" />
+    <Compile Include="ViewModel\IPageViewModel.cs" />
+    <Compile Include="ViewModel\IWindowViewModel.cs" />
+    <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\PageViewModel.cs" />
     <Compile Include="Service References\CompanyServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -151,6 +154,9 @@
     <None Include="Service References\CompanyServiceReference\CompanyService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\CompanyServiceReference\CompanyService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\EventServiceReference\CertifyMe.Client.EventServiceReference.Event.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -167,6 +173,9 @@
     <None Include="Service References\EventServiceReference\EventService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\EventServiceReference\EventService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\UserServiceReference\CertifyMe.Client.UserServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -178,6 +187,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\UserServiceReference\UserService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserServiceReference\UserService3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

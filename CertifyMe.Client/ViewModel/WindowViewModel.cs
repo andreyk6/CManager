@@ -8,16 +8,26 @@ using System.Windows.Controls;
 
 namespace CertifyMe.Client.ViewModel
 {
-    public abstract class ViewModelBase : INotifyPropertyChanged
+    public class WindowViewModel : IWindowViewModel
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public Page Page { get; private set; }
-
-        public ViewModelBase(Page page)
+        private Page _currentView;
+        public Page CurrentView
         {
-            Page = page;
+            get
+            {
+                return _currentView;
+            }
+            set
+            {
+                if (value == _currentView)
+                    return;
+
+                _currentView = value;
+                OnPropertyChanged("CurrentView");
+            }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

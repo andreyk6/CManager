@@ -4,6 +4,7 @@ using CertifyMe.Client.EventServiceReference;
 using CertifyMe.Client.UserServiceReference;
 using System;
 using CertifyMe.Client.View;
+using CertifyMe.Client.ViewModel;
 
 namespace CertifyMe.Client
 {
@@ -19,7 +20,10 @@ namespace CertifyMe.Client
         public MainWindow()
         {
             InitializeComponent();
-            _mainFrame.Navigate(new LoginPage());
+            //_mainFrame.Navigate(new LoginPage());
+            var viewModel = new WindowViewModel();
+            viewModel.CurrentView = new LoginPage(viewModel);
+            this.DataContext = viewModel;    
 
             //CreateUsers();
             //var users = userService.GetAll();
@@ -56,7 +60,7 @@ namespace CertifyMe.Client
         {
             for (int i = 0; i < companies.Length; i++)
             {
-                var @event = new Event()
+                var @event = new EventInfo()
                 {
                     CompanyId = companies[i].Id,
                     Name = "Event " + i,
@@ -72,7 +76,7 @@ namespace CertifyMe.Client
         {
             for (var i = 0; i < users.Length; i++)
             {
-                var company = new Company()
+                var company = new CompanyInfo()
                 {
                     OwnerId = users[i].Id,
                     Name = "Company " + i,
@@ -86,7 +90,7 @@ namespace CertifyMe.Client
         {
             for (var i = 0; i < 10; i++)
             {
-                var user = new User()
+                var user = new UserInfo()
                 {
                     Age = 18 + i,
                     FirstName = "User",
