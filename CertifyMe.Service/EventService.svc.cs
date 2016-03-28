@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using CertifyMe.Data;
 using CertifyMe.Service.DataContracts;
 
 namespace CertifyMe.Service
@@ -12,22 +13,17 @@ namespace CertifyMe.Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select EventService.svc or EventService.svc.cs at the Solution Explorer and start debugging.
     public class EventService : IEventService
     {
-        public Guid Add(Event @event)
+        public Guid Add(EventInfo eventInfo)
         {
-            if (Data.Event.Items.ContainsKey(@event.Id))
-            {
-                return Guid.Empty;
-            }
-
             try
             {
-                var eventModel = new Data.Event(@event.CompanyId, @event.StartDate, @event.EndDate)
+                var @event = new Event(eventInfo.CompanyId, eventInfo.StartDate, eventInfo.EndDate)
                 {
-                    Name = @event.Name,
-                    Description = @event.Description,
-                    Location = @event.Location
+                    Name = eventInfo.Name,
+                    Description = eventInfo.Description,
+                    Location = eventInfo.Location
                 };
-                return eventModel.Id;
+                return @event.Id;
             }
             catch (Exception e)
             {
@@ -37,14 +33,14 @@ namespace CertifyMe.Service
 
         public List<Event> GetAll()
         {
-            return Data.Event.Items.Values.Select(e => e.ToEventContract()).ToList();
+            return Event.Items.Values.ToList();
         }
 
         public Event GetById(Guid id)
         {
-            if (Data.Event.Items.Keys.Contains(id))
+            if (Event.Items.Keys.Contains(id))
             {
-                return Data.Event.Items[id].ToEventContract();
+                return Event.Items[id];
             }
 
             return null;
@@ -52,9 +48,9 @@ namespace CertifyMe.Service
 
         public bool RemoveById(Guid id)
         {
-            if (Data.Event.Items.Keys.Contains(id))
+            if (Event.Items.Keys.Contains(id))
             {
-                Data.Event.Items.Remove(id);
+                Event.Items.Remove(id);
                 return true;
             }
             return false;
@@ -62,13 +58,13 @@ namespace CertifyMe.Service
 
         public bool Update(Event @event)
         {
-            if (Data.Event.Items.Keys.Contains(@event.Id))
+            if (Event.Items.Keys.Contains(@event.Id))
             {
-                Data.Event.Items[@event.Id].Description = @event.Description;
-                Data.Event.Items[@event.Id].Name = @event.Name;
-                Data.Event.Items[@event.Id].Location = @event.Location;
-                Data.Event.Items[@event.Id].StartDate = @event.StartDate;
-                Data.Event.Items[@event.Id].EndDate = @event.EndDate;
+                Event.Items[@event.Id].Description = @event.Description;
+                Event.Items[@event.Id].Name = @event.Name;
+                Event.Items[@event.Id].Location = @event.Location;
+                Event.Items[@event.Id].StartDate = @event.StartDate;
+                Event.Items[@event.Id].EndDate = @event.EndDate;
                 return true;
             }
 
@@ -79,7 +75,7 @@ namespace CertifyMe.Service
         {
             try
             {
-                new Data.EventRegistration(userId, eventId);
+                new EventRegistration(userId, eventId);
                 return true;
             }
             catch (Exception e)
@@ -90,33 +86,37 @@ namespace CertifyMe.Service
 
         public bool UnregisterUser(Guid userId, Guid eventId)
         {
-            var eventRegistration = Data.EventRegistration.Items.Values.Where(r => r.Event.Id == eventId && r.User.Id == userId).Single();
+            var eventRegistration = EventRegistration.Items.Values.Where(r => r.Event.Id == eventId && r.User.Id == userId).Single();
             if (eventRegistration != null)
             {
-                return Data.EventRegistration.Items.Remove(eventRegistration.Id);
+                return EventRegistration.Items.Remove(eventRegistration.Id);
             }
             return false;
         }
 
         public List<EventComment> GetComments(Guid eventId)
         {
-            return Data.EventComment.Items.Values.Where(c => c.Event.Id == eventId).Select(c => c.ToEventCommentContract()).ToList();
+            if (User.Items.Keys.Contains(eventId))
+            {
+                return Event.Items[eventId].Comments;
+            }
+            return null;
         }
 
         public List<Event> GetUserEvents(Guid userId)
         {
-            if (Data.User.Items.Keys.Contains(userId))
+            if (User.Items.Keys.Contains(userId))
             {
-                return Data.User.Items[userId].Events.Select(e => e.ToEventContract()).ToList();
+                return User.Items[userId].Events;
             }
             return null;
         }
 
         public List<Event> GetCompanyEvents(Guid companyId)
         {
-            if (Data.Company.Items.Keys.Contains(companyId))
+            if (Company.Items.Keys.Contains(companyId))
             {
-                return Data.Company.Items[companyId].Events.Select(e => e.ToEventContract()).ToList();
+                return Company.Items[companyId].Events.ToList();
             }
             return null;
         }

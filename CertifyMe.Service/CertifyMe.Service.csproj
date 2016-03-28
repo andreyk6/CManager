@@ -73,14 +73,10 @@
     <Compile Include="CompanyService.svc.cs">
       <DependentUpon>CompanyService.svc</DependentUpon>
     </Compile>
-    <Compile Include="DataContracts\Certificate.cs" />
-    <Compile Include="DataContracts\EventComment.cs" />
-    <Compile Include="DataContracts\Company.cs" />
+    <Compile Include="DataContracts\CompanyInfo.cs" />
     <Compile Include="DataContracts\DmBaseDataContract.cs" />
-    <Compile Include="DataContracts\DomainToContractExtension.cs" />
-    <Compile Include="DataContracts\Event.cs" />
-    <Compile Include="DataContracts\EventRegistration.cs" />
-    <Compile Include="DataContracts\User.cs" />
+    <Compile Include="DataContracts\EventInfo.cs" />
+    <Compile Include="DataContracts\UserInfo.cs" />
     <Compile Include="EventService.svc.cs">
       <DependentUpon>EventService.svc</DependentUpon>
     </Compile>

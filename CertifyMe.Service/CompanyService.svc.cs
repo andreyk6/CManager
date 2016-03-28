@@ -1,4 +1,5 @@
-﻿using CertifyMe.Service.DataContracts;
+﻿using CertifyMe.Data;
+using CertifyMe.Service.DataContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,21 +13,16 @@ namespace CertifyMe.Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select CompanyService.svc or CompanyService.svc.cs at the Solution Explorer and start debugging.
     public class CompanyService : ICompanyService
     {
-        public Guid Add(Company company)
+        public Guid Add(CompanyInfo companyInfo)
         {
-            if (Data.Company.Items.Keys.Contains(company.Id))
-            {
-                return Guid.Empty;
-            }
-
             try
             {
-                var companyModel = new Data.Company(company.OwnerId)
+                var company = new Data.Company(companyInfo.OwnerId)
                 {
-                    Name = company.Name,
-                    Description = company.Description,
+                    Name = companyInfo.Name,
+                    Description = companyInfo.Description,
                 };
-                return companyModel.Id;
+                return company.Id;
             }
             catch
             {
@@ -36,23 +32,23 @@ namespace CertifyMe.Service
 
         public List<Company> GetAll()
         {
-            return Data.Company.Items.Values.Select(c => c.ToCompanyContract()).ToList();
+            return Data.Company.Items.Values.ToList();
         }
 
         public Company GetById(Guid id)
         {
             if (Data.Company.Items.Keys.Contains(id))
             {
-                return Data.Company.Items[id].ToCompanyContract();
+                return Data.Company.Items[id];
             }
             return null;
         }
 
         public List<Company> GetUserCompanies(Guid userId)
         {
-            if (Data.Company.Items.Keys.Contains(userId))
+            if (Data.User.Items.ContainsKey(userId))
             {
-                return Data.User.Items[userId].Companies.Select(c => c.ToCompanyContract()).ToList();
+                return Data.User.Items[userId].Companies;
             }
             return null;
         }

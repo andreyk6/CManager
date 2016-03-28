@@ -38,9 +38,9 @@ namespace CertifyMe.Service.DataContracts
                 Description = compamy.Description
             };
         }
-        public static Event ToEventContract(this Data.Event @event)
+        public static EventInfo ToEventContract(this Data.Event @event)
         {
-            return new Event()
+            return new EventInfo()
             {
                 Id = @event.Id,
                 CompanyId = @event.Company.Id,

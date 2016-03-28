@@ -8,21 +8,21 @@ namespace CertifyMe.Service
 {
 
     [ServiceContract]
-    public interface IService<T> where T: class
+    public interface IService<T1, T2>
     {
         [OperationContract]
-        T GetById(Guid id);
+        T1 GetById(Guid id);
 
         [OperationContract]
-        Guid Add(T item);
+        Guid Add(T2 item);
 
         [OperationContract]
         bool RemoveById(Guid id);
 
         [OperationContract]
-        bool Update(T item);
+        bool Update(T1 item);
 
         [OperationContract]
-        List<T> GetAll();
+        List<T1> GetAll();
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 namespace CertifyMe.Service.DataContracts
 {
     [DataContract]
-    public class Event : DmBaseDataContract
+    public class EventInfo : DmBaseDataContract
     {
         [DataMember]
         public Guid CompanyId { get; set; }

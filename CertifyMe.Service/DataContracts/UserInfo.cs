@@ -7,7 +7,7 @@ using System.Web;
 namespace CertifyMe.Service.DataContracts
 {
     [DataContract]
-    public class User : DmBaseDataContract
+    public class UserInfo : DmBaseDataContract
     {
         [DataMember]
         public string FirstName { get; set; }
@@ -15,7 +15,7 @@ namespace CertifyMe.Service.DataContracts
         public string LastName { get; set; }
         [DataMember]
         public int Age { get; set; }
-        public User(string firstName, string lastName, int age) : base()
+        public UserInfo(string firstName, string lastName, int age) : base()
         {
             FirstName = firstName;
             LastName = lastName;

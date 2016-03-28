@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using CertifyMe.Data;
 using CertifyMe.Service.DataContracts;
 
 namespace CertifyMe.Service
@@ -13,28 +14,22 @@ namespace CertifyMe.Service
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class UserService : IUserService
     {
-        public Guid Add(User user)
+        public Guid Add(UserInfo userInfo)
         {
-            if (Data.User.Items.Keys.Contains(user.Id))
-            {
-                return Guid.Empty;
-            }
-            else {
-                var userModel = new Data.User(user.FirstName, user.LastName, user.Age);
-                return userModel.Id;
-            }
+            var user = new Data.User(userInfo.FirstName, userInfo.LastName, userInfo.Age);
+            return user.Id;
         }
 
         public List<User> GetAll()
         {
-            return Data.User.Items.Values.Select(u => u.ToUserContract()).ToList();
+            return Data.User.Items.Values.ToList();
         }
 
         public User GetById(Guid id)
         {
             if (Data.User.Items.Keys.Contains(id))
             {
-                return Data.User.Items[id].ToUserContract();
+                return Data.User.Items[id];
             }
             else {
                 return null;
