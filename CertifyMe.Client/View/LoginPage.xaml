@@ -1,0 +1,44 @@
+﻿<Page x:Class="CertifyMe.Client.View.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:qc="http://QuickConverter.CodePlex.com/"
+      xmlns:local="clr-namespace:CertifyMe.Client.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="LoginPage">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Page.Resources>
+    <DockPanel Background="White">
+        <Grid DockPanel.Dock="Top" Height="100">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0.912"/>
+                    <GradientStop Color="#FFFFAE00"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Label Margin="0,10,0,0"  HorizontalAlignment="Center" Content="Certify.Me" FontSize="40" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="Black">
+                <Label.Effect>
+                    <DropShadowEffect Color="#FFF0CF3C"/>
+                </Label.Effect>
+            </Label>
+        </Grid>
+        <StackPanel Margin="10">
+            <DockPanel Margin="0,5">
+                <Label DockPanel.Dock="Left" Content="User name: "/>
+                <TextBox Name="userName" Text="{Binding Path=UserName}"/>
+            </DockPanel>
+            <DockPanel Margin="0,5">
+                <Label DockPanel.Dock="Left" Content="Password: "/>
+                <PasswordBox Name="userPassword" PasswordChar="*" KeyUp="userPassword_KeyUp"/>
+            </DockPanel>
+            <DockPanel Margin="0,5">
+                <Button Name="SignUp" Width="100" IsEnabled="{qc:Binding '!$P', P={Binding Path=CommandExecuting}}"  Content="Sign Up" Command="{Binding Register}"/>
+                <Button Name="Signin" HorizontalAlignment="Right" Width="100" Content="Sign In" Command="{Binding SignIn}"/>
+            </DockPanel>
+            <ProgressBar Height="10"  Name="LoginProgressBar"  Visibility="{Binding Path=SignInExecuting, Converter={StaticResource BoolToVis}}" IsIndeterminate="True"></ProgressBar>
+        </StackPanel>
+    </DockPanel>
+</Page>

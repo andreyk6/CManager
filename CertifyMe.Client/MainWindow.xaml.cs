@@ -3,6 +3,7 @@ using CertifyMe.Client.CompanyServiceReference;
 using CertifyMe.Client.EventServiceReference;
 using CertifyMe.Client.UserServiceReference;
 using System;
+using CertifyMe.Client.View;
 
 namespace CertifyMe.Client
 {
@@ -18,23 +19,22 @@ namespace CertifyMe.Client
         public MainWindow()
         {
             InitializeComponent();
+            _mainFrame.Navigate(new LoginPage());
 
-            CreateUsers();
-            var users = userService.GetAll();
+            //CreateUsers();
+            //var users = userService.GetAll();
 
-            CreateCompanyForEachUser(users);
-            var companies = companyService.GetAll();
+            //CreateCompanyForEachUser(users);
+            //var companies = companyService.GetAll();
 
-            CreateEventForEachCompany(companies);
-            var events = eventService.GetAll();
+            //CreateEventForEachCompany(companies);
+            //var events = eventService.GetAll();
 
-            RegisterEachUserOnEachEvent(users, events);
-            foreach(var user in users)
-            {
-                var userEvents = eventService.GetUserEvents(user.Id);
-            }
-            //users = null;
-            //users = null;
+            //RegisterEachUserOnEachEvent(users, events);
+            //foreach(var user in users)
+            //{
+            //    var userEvents = eventService.GetUserEvents(user.Id);
+            //}
         }
 
         private void RegisterEachUserOnEachEvent(User[] users, Event[] events)
