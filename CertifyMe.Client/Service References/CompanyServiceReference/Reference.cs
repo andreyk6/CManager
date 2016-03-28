@@ -15,9 +15,126 @@ namespace CertifyMe.Client.CompanyServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseDataContract", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseOfCompanyuL7agKBo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.CompanyServiceReference.Company))]
+    public partial class DmBaseOfCompanyuL7agKBo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationTime {
+            get {
+                return this.CreationTimeField;
+            }
+            set {
+                if ((this.CreationTimeField.Equals(value) != true)) {
+                    this.CreationTimeField = value;
+                    this.RaisePropertyChanged("CreationTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Company", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
+    [System.SerializableAttribute()]
+    public partial class Company : CertifyMe.Client.CompanyServiceReference.DmBaseOfCompanyuL7agKBo {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid OwnerIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid OwnerId {
+            get {
+                return this.OwnerIdField;
+            }
+            set {
+                if ((this.OwnerIdField.Equals(value) != true)) {
+                    this.OwnerIdField = value;
+                    this.RaisePropertyChanged("OwnerId");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseDataContract", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.CompanyServiceReference.CompanyInfo))]
     public partial class DmBaseDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -77,9 +194,9 @@ namespace CertifyMe.Client.CompanyServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Company", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CompanyInfo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
     [System.SerializableAttribute()]
-    public partial class Company : CertifyMe.Client.CompanyServiceReference.DmBaseDataContract {
+    public partial class CompanyInfo : CertifyMe.Client.CompanyServiceReference.DmBaseDataContract {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
@@ -134,34 +251,34 @@ namespace CertifyMe.Client.CompanyServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CompanyServiceReference.ICompanyService")]
     public interface ICompanyService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/GetById", ReplyAction="http://tempuri.org/IServiceOf_Company/GetByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetById", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetByIdResponse")]
         CertifyMe.Client.CompanyServiceReference.Company GetById(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/GetById", ReplyAction="http://tempuri.org/IServiceOf_Company/GetByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetById", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetByIdResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.CompanyServiceReference.Company> GetByIdAsync(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/Add", ReplyAction="http://tempuri.org/IServiceOf_Company/AddResponse")]
-        System.Guid Add(CertifyMe.Client.CompanyServiceReference.Company item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/Add", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/AddResponse")]
+        System.Guid Add(CertifyMe.Client.CompanyServiceReference.CompanyInfo item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/Add", ReplyAction="http://tempuri.org/IServiceOf_Company/AddResponse")]
-        System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.CompanyServiceReference.Company item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/Add", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/AddResponse")]
+        System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.CompanyServiceReference.CompanyInfo item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Company/RemoveByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/RemoveByIdResponse")]
         bool RemoveById(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Company/RemoveByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/RemoveByIdResponse")]
         System.Threading.Tasks.Task<bool> RemoveByIdAsync(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/Update", ReplyAction="http://tempuri.org/IServiceOf_Company/UpdateResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/Update", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/UpdateResponse")]
         bool Update(CertifyMe.Client.CompanyServiceReference.Company item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/Update", ReplyAction="http://tempuri.org/IServiceOf_Company/UpdateResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/Update", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/UpdateResponse")]
         System.Threading.Tasks.Task<bool> UpdateAsync(CertifyMe.Client.CompanyServiceReference.Company item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Company/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetAllResponse")]
         CertifyMe.Client.CompanyServiceReference.Company[] GetAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Company/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetAllResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.CompanyServiceReference.Company[]> GetAllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetUserCompanies", ReplyAction="http://tempuri.org/ICompanyService/GetUserCompaniesResponse")]
@@ -206,11 +323,11 @@ namespace CertifyMe.Client.CompanyServiceReference {
             return base.Channel.GetByIdAsync(id);
         }
         
-        public System.Guid Add(CertifyMe.Client.CompanyServiceReference.Company item) {
+        public System.Guid Add(CertifyMe.Client.CompanyServiceReference.CompanyInfo item) {
             return base.Channel.Add(item);
         }
         
-        public System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.CompanyServiceReference.Company item) {
+        public System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.CompanyServiceReference.CompanyInfo item) {
             return base.Channel.AddAsync(item);
         }
         

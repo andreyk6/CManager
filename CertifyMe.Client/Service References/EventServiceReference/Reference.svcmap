@@ -25,6 +25,7 @@
     <MetadataFile FileName="EventService.xsd" MetadataType="Schema" ID="749007b2-862b-4a86-9d59-8d47276f9cb3" SourceId="1" SourceUrl="http://localhost:36528/EventService.svc?xsd=xsd2" />
     <MetadataFile FileName="EventService1.xsd" MetadataType="Schema" ID="f33b42ed-b6a1-444e-9df1-f3df4ab21d3f" SourceId="1" SourceUrl="http://localhost:36528/EventService.svc?xsd=xsd0" />
     <MetadataFile FileName="EventService.wsdl" MetadataType="Wsdl" ID="33d29073-bd21-4f3a-9ab6-8163c20d1d36" SourceId="1" SourceUrl="http://localhost:36528/EventService.svc?wsdl" />
+    <MetadataFile FileName="EventService3.xsd" MetadataType="Schema" ID="6840d00a-bc57-423f-9b22-e2e82162f309" SourceId="1" SourceUrl="http://localhost:36528/EventService.svc?xsd=xsd3" />
     <MetadataFile FileName="EventService2.xsd" MetadataType="Schema" ID="1d858cbe-6ea3-4397-a39c-0132f20bd904" SourceId="1" SourceUrl="http://localhost:36528/EventService.svc?xsd=xsd1" />
     <MetadataFile FileName="EventService.disco" MetadataType="Disco" ID="3c7740e1-9696-49f5-adc8-c35e3afe8c0e" SourceId="1" SourceUrl="http://localhost:36528/EventService.svc?disco" />
   </Metadata>

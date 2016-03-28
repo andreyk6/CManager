@@ -4,7 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:36528/EventService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:36528/EventService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:36528/EventService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:36528/EventService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data" />
+      <xsd:import schemaLocation="http://localhost:36528/EventService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IEventService_GetById_InputMessage">
@@ -69,24 +70,24 @@
   </wsdl:message>
   <wsdl:portType name="IEventService">
     <wsdl:operation name="GetById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event/GetById" message="tns:IEventService_GetById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event/GetByIdResponse" message="tns:IEventService_GetById_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetById" message="tns:IEventService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetByIdResponse" message="tns:IEventService_GetById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Add">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event/Add" message="tns:IEventService_Add_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event/AddResponse" message="tns:IEventService_Add_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/Add" message="tns:IEventService_Add_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/AddResponse" message="tns:IEventService_Add_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event/RemoveById" message="tns:IEventService_RemoveById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event/RemoveByIdResponse" message="tns:IEventService_RemoveById_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/RemoveById" message="tns:IEventService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/RemoveByIdResponse" message="tns:IEventService_RemoveById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Update">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event/Update" message="tns:IEventService_Update_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event/UpdateResponse" message="tns:IEventService_Update_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/Update" message="tns:IEventService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/UpdateResponse" message="tns:IEventService_Update_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event/GetAll" message="tns:IEventService_GetAll_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event/GetAllResponse" message="tns:IEventService_GetAll_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetAll" message="tns:IEventService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetAllResponse" message="tns:IEventService_GetAll_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RegisterUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventService/RegisterUser" message="tns:IEventService_RegisterUser_InputMessage" />
@@ -112,7 +113,7 @@
   <wsdl:binding name="BasicHttpBinding_IEventService" type="tns:IEventService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetById">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event/GetById" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event_EventInfo/GetById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -121,7 +122,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Add">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event/Add" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event_EventInfo/Add" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -130,7 +131,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RemoveById">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event/RemoveById" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event_EventInfo/RemoveById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -139,7 +140,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Update">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event/Update" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event_EventInfo/Update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -148,7 +149,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event/GetAll" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Event_EventInfo/GetAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -15,11 +15,10 @@ namespace CertifyMe.Client.EventServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseDataContract", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseOfEventuL7agKBo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.EventServiceReference.EventComment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.EventServiceReference.Event))]
-    public partial class DmBaseDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class DmBaseOfEventuL7agKBo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -78,64 +77,9 @@ namespace CertifyMe.Client.EventServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="EventComment", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Event", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
     [System.SerializableAttribute()]
-    public partial class EventComment : CertifyMe.Client.EventServiceReference.DmBaseDataContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid CommentatorIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid EventIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TextField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid CommentatorId {
-            get {
-                return this.CommentatorIdField;
-            }
-            set {
-                if ((this.CommentatorIdField.Equals(value) != true)) {
-                    this.CommentatorIdField = value;
-                    this.RaisePropertyChanged("CommentatorId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid EventId {
-            get {
-                return this.EventIdField;
-            }
-            set {
-                if ((this.EventIdField.Equals(value) != true)) {
-                    this.EventIdField = value;
-                    this.RaisePropertyChanged("EventId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Text {
-            get {
-                return this.TextField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TextField, value) != true)) {
-                    this.TextField = value;
-                    this.RaisePropertyChanged("Text");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Event", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
-    [System.SerializableAttribute()]
-    public partial class Event : CertifyMe.Client.EventServiceReference.DmBaseDataContract {
+    public partial class Event : CertifyMe.Client.EventServiceReference.DmBaseOfEventuL7agKBo {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Guid CompanyIdField;
@@ -234,38 +178,320 @@ namespace CertifyMe.Client.EventServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseDataContract", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.EventServiceReference.EventInfo))]
+    public partial class DmBaseDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationTime {
+            get {
+                return this.CreationTimeField;
+            }
+            set {
+                if ((this.CreationTimeField.Equals(value) != true)) {
+                    this.CreationTimeField = value;
+                    this.RaisePropertyChanged("CreationTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventInfo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.SerializableAttribute()]
+    public partial class EventInfo : CertifyMe.Client.EventServiceReference.DmBaseDataContract {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid CompanyIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LocationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid CompanyId {
+            get {
+                return this.CompanyIdField;
+            }
+            set {
+                if ((this.CompanyIdField.Equals(value) != true)) {
+                    this.CompanyIdField = value;
+                    this.RaisePropertyChanged("CompanyId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Location {
+            get {
+                return this.LocationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EventComment", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
+    [System.SerializableAttribute()]
+    public partial class EventComment : CertifyMe.Client.EventServiceReference.DmBaseOfEventCommentuL7agKBo {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid CommentatorIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid EventIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid CommentatorId {
+            get {
+                return this.CommentatorIdField;
+            }
+            set {
+                if ((this.CommentatorIdField.Equals(value) != true)) {
+                    this.CommentatorIdField = value;
+                    this.RaisePropertyChanged("CommentatorId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid EventId {
+            get {
+                return this.EventIdField;
+            }
+            set {
+                if ((this.EventIdField.Equals(value) != true)) {
+                    this.EventIdField = value;
+                    this.RaisePropertyChanged("EventId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Text {
+            get {
+                return this.TextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TextField, value) != true)) {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseOfEventCommentuL7agKBo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.EventServiceReference.EventComment))]
+    public partial class DmBaseOfEventCommentuL7agKBo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationTime {
+            get {
+                return this.CreationTimeField;
+            }
+            set {
+                if ((this.CreationTimeField.Equals(value) != true)) {
+                    this.CreationTimeField = value;
+                    this.RaisePropertyChanged("CreationTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EventServiceReference.IEventService")]
     public interface IEventService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/GetById", ReplyAction="http://tempuri.org/IServiceOf_Event/GetByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetById", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/GetByIdResponse")]
         CertifyMe.Client.EventServiceReference.Event GetById(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/GetById", ReplyAction="http://tempuri.org/IServiceOf_Event/GetByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetById", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/GetByIdResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.EventServiceReference.Event> GetByIdAsync(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/Add", ReplyAction="http://tempuri.org/IServiceOf_Event/AddResponse")]
-        System.Guid Add(CertifyMe.Client.EventServiceReference.Event item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/Add", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/AddResponse")]
+        System.Guid Add(CertifyMe.Client.EventServiceReference.EventInfo item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/Add", ReplyAction="http://tempuri.org/IServiceOf_Event/AddResponse")]
-        System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.EventServiceReference.Event item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/Add", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/AddResponse")]
+        System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.EventServiceReference.EventInfo item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Event/RemoveByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/RemoveByIdResponse")]
         bool RemoveById(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Event/RemoveByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/RemoveByIdResponse")]
         System.Threading.Tasks.Task<bool> RemoveByIdAsync(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/Update", ReplyAction="http://tempuri.org/IServiceOf_Event/UpdateResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/Update", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/UpdateResponse")]
         bool Update(CertifyMe.Client.EventServiceReference.Event item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/Update", ReplyAction="http://tempuri.org/IServiceOf_Event/UpdateResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/Update", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/UpdateResponse")]
         System.Threading.Tasks.Task<bool> UpdateAsync(CertifyMe.Client.EventServiceReference.Event item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Event/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/GetAllResponse")]
         CertifyMe.Client.EventServiceReference.Event[] GetAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Event/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_Event_EventInfo/GetAll", ReplyAction="http://tempuri.org/IServiceOf_Event_EventInfo/GetAllResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.EventServiceReference.Event[]> GetAllAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/RegisterUser", ReplyAction="http://tempuri.org/IEventService/RegisterUserResponse")]
@@ -334,11 +560,11 @@ namespace CertifyMe.Client.EventServiceReference {
             return base.Channel.GetByIdAsync(id);
         }
         
-        public System.Guid Add(CertifyMe.Client.EventServiceReference.Event item) {
+        public System.Guid Add(CertifyMe.Client.EventServiceReference.EventInfo item) {
             return base.Channel.Add(item);
         }
         
-        public System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.EventServiceReference.Event item) {
+        public System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.EventServiceReference.EventInfo item) {
             return base.Channel.AddAsync(item);
         }
         

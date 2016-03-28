@@ -4,7 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:36528/UserService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:36528/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:36528/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:36528/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data" />
+      <xsd:import schemaLocation="http://localhost:36528/UserService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUserService_GetById_InputMessage">
@@ -39,30 +40,30 @@
   </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="GetById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User/GetById" message="tns:IUserService_GetById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User/GetByIdResponse" message="tns:IUserService_GetById_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/GetById" message="tns:IUserService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/GetByIdResponse" message="tns:IUserService_GetById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Add">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User/Add" message="tns:IUserService_Add_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User/AddResponse" message="tns:IUserService_Add_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/Add" message="tns:IUserService_Add_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/AddResponse" message="tns:IUserService_Add_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User/RemoveById" message="tns:IUserService_RemoveById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User/RemoveByIdResponse" message="tns:IUserService_RemoveById_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/RemoveById" message="tns:IUserService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/RemoveByIdResponse" message="tns:IUserService_RemoveById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Update">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User/Update" message="tns:IUserService_Update_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User/UpdateResponse" message="tns:IUserService_Update_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/Update" message="tns:IUserService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/UpdateResponse" message="tns:IUserService_Update_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User/GetAll" message="tns:IUserService_GetAll_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User/GetAllResponse" message="tns:IUserService_GetAll_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/GetAll" message="tns:IUserService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_User_UserInfo/GetAllResponse" message="tns:IUserService_GetAll_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetById">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_User/GetById" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_User_UserInfo/GetById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -71,7 +72,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Add">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_User/Add" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_User_UserInfo/Add" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -80,7 +81,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RemoveById">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_User/RemoveById" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_User_UserInfo/RemoveById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -89,7 +90,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Update">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_User/Update" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_User_UserInfo/Update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -98,7 +99,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_User/GetAll" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_User_UserInfo/GetAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -4,7 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:36528/CompanyService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:36528/CompanyService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:36528/CompanyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" />
+      <xsd:import schemaLocation="http://localhost:36528/CompanyService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data" />
+      <xsd:import schemaLocation="http://localhost:36528/CompanyService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICompanyService_GetById_InputMessage">
@@ -45,24 +46,24 @@
   </wsdl:message>
   <wsdl:portType name="ICompanyService">
     <wsdl:operation name="GetById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company/GetById" message="tns:ICompanyService_GetById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company/GetByIdResponse" message="tns:ICompanyService_GetById_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetById" message="tns:ICompanyService_GetById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetByIdResponse" message="tns:ICompanyService_GetById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Add">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company/Add" message="tns:ICompanyService_Add_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company/AddResponse" message="tns:ICompanyService_Add_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/Add" message="tns:ICompanyService_Add_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/AddResponse" message="tns:ICompanyService_Add_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company/RemoveById" message="tns:ICompanyService_RemoveById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company/RemoveByIdResponse" message="tns:ICompanyService_RemoveById_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/RemoveById" message="tns:ICompanyService_RemoveById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/RemoveByIdResponse" message="tns:ICompanyService_RemoveById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Update">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company/Update" message="tns:ICompanyService_Update_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company/UpdateResponse" message="tns:ICompanyService_Update_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/Update" message="tns:ICompanyService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/UpdateResponse" message="tns:ICompanyService_Update_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company/GetAll" message="tns:ICompanyService_GetAll_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company/GetAllResponse" message="tns:ICompanyService_GetAll_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetAll" message="tns:ICompanyService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetAllResponse" message="tns:ICompanyService_GetAll_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUserCompanies">
       <wsdl:input wsaw:Action="http://tempuri.org/ICompanyService/GetUserCompanies" message="tns:ICompanyService_GetUserCompanies_InputMessage" />
@@ -72,7 +73,7 @@
   <wsdl:binding name="BasicHttpBinding_ICompanyService" type="tns:ICompanyService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetById">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company/GetById" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -81,7 +82,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Add">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company/Add" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/Add" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -90,7 +91,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RemoveById">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company/RemoveById" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/RemoveById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -99,7 +100,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Update">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company/Update" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/Update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -108,7 +109,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company/GetAll" style="document" />
+      <soap:operation soapAction="http://tempuri.org/IServiceOf_Company_CompanyInfo/GetAll" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

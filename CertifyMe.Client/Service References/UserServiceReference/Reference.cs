@@ -15,9 +15,126 @@ namespace CertifyMe.Client.UserServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseDataContract", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseOfUseruL7agKBo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.UserServiceReference.User))]
+    public partial class DmBaseOfUseruL7agKBo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationTime {
+            get {
+                return this.CreationTimeField;
+            }
+            set {
+                if ((this.CreationTimeField.Equals(value) != true)) {
+                    this.CreationTimeField = value;
+                    this.RaisePropertyChanged("CreationTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
+    [System.SerializableAttribute()]
+    public partial class User : CertifyMe.Client.UserServiceReference.DmBaseOfUseruL7agKBo {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((this.AgeField.Equals(value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseDataContract", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.UserServiceReference.UserInfo))]
     public partial class DmBaseDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -77,9 +194,9 @@ namespace CertifyMe.Client.UserServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
     [System.SerializableAttribute()]
-    public partial class User : CertifyMe.Client.UserServiceReference.DmBaseDataContract {
+    public partial class UserInfo : CertifyMe.Client.UserServiceReference.DmBaseDataContract {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int AgeField;
@@ -134,34 +251,34 @@ namespace CertifyMe.Client.UserServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="UserServiceReference.IUserService")]
     public interface IUserService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/GetById", ReplyAction="http://tempuri.org/IServiceOf_User/GetByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/GetById", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/GetByIdResponse")]
         CertifyMe.Client.UserServiceReference.User GetById(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/GetById", ReplyAction="http://tempuri.org/IServiceOf_User/GetByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/GetById", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/GetByIdResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.UserServiceReference.User> GetByIdAsync(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/Add", ReplyAction="http://tempuri.org/IServiceOf_User/AddResponse")]
-        System.Guid Add(CertifyMe.Client.UserServiceReference.User item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/Add", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/AddResponse")]
+        System.Guid Add(CertifyMe.Client.UserServiceReference.UserInfo item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/Add", ReplyAction="http://tempuri.org/IServiceOf_User/AddResponse")]
-        System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.UserServiceReference.User item);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/Add", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/AddResponse")]
+        System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.UserServiceReference.UserInfo item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_User/RemoveByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/RemoveByIdResponse")]
         bool RemoveById(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_User/RemoveByIdResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/RemoveById", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/RemoveByIdResponse")]
         System.Threading.Tasks.Task<bool> RemoveByIdAsync(System.Guid id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/Update", ReplyAction="http://tempuri.org/IServiceOf_User/UpdateResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/Update", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/UpdateResponse")]
         bool Update(CertifyMe.Client.UserServiceReference.User item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/Update", ReplyAction="http://tempuri.org/IServiceOf_User/UpdateResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/Update", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/UpdateResponse")]
         System.Threading.Tasks.Task<bool> UpdateAsync(CertifyMe.Client.UserServiceReference.User item);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/GetAll", ReplyAction="http://tempuri.org/IServiceOf_User/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/GetAll", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/GetAllResponse")]
         CertifyMe.Client.UserServiceReference.User[] GetAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User/GetAll", ReplyAction="http://tempuri.org/IServiceOf_User/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/GetAll", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/GetAllResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.UserServiceReference.User[]> GetAllAsync();
     }
     
@@ -200,11 +317,11 @@ namespace CertifyMe.Client.UserServiceReference {
             return base.Channel.GetByIdAsync(id);
         }
         
-        public System.Guid Add(CertifyMe.Client.UserServiceReference.User item) {
+        public System.Guid Add(CertifyMe.Client.UserServiceReference.UserInfo item) {
             return base.Channel.Add(item);
         }
         
-        public System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.UserServiceReference.User item) {
+        public System.Threading.Tasks.Task<System.Guid> AddAsync(CertifyMe.Client.UserServiceReference.UserInfo item) {
             return base.Channel.AddAsync(item);
         }
         
