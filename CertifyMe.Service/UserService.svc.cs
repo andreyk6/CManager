@@ -16,7 +16,7 @@ namespace CertifyMe.Service
     {
         public Guid Add(UserInfo userInfo)
         {
-            var user = new Data.User(userInfo.FirstName, userInfo.LastName, userInfo.Age);
+            var user = new Data.User(userInfo.FirstName, userInfo.LastName, userInfo.Age, userInfo.Login, userInfo.Password);
             return user.Id;
         }
 
@@ -60,6 +60,16 @@ namespace CertifyMe.Service
             else {
                 return false;
             }
+        }
+
+        public Guid GetUserByCredentials(string login, string password)
+        {
+            var user = User.Items.Values.Where(u => u.Login == login && u.Password == password).FirstOrDefault();
+
+            if (user == null)
+                return Guid.Empty;
+
+            return user.Id;
         }
     }
 }

@@ -10,17 +10,24 @@ namespace CertifyMe.Data
     public class User : DmBase<User>
     {
         [DataMember]
+        public string Login { get; set; }
+        [DataMember]
+        public string Password { get; set; }
+
+        [DataMember]
         public string FirstName { get; set; }
         [DataMember]
         public string LastName { get; set; }
         [DataMember]
         public int Age { get; set; }
 
-        public User(string firstName, string lastName, int age) : base()
+        public User(string firstName, string lastName, int age, string login, string password) : base()
         {
             FirstName = firstName;
             LastName = lastName;
             Age = age;
+            Login = login;
+            Password = password;
         }
 
         [IgnoreDataMember]
