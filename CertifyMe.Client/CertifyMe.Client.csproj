@@ -62,9 +62,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utilities\ActionButtonCommand.cs" />
     <Compile Include="Utilities\NavigationButtonCommand.cs" />
     <Compile Include="ViewModel\IPageViewModel.cs" />
     <Compile Include="ViewModel\IWindowViewModel.cs" />
+    <Compile Include="ViewModel\RegistrationPageViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

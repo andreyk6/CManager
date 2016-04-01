@@ -8,6 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <TabControl>
+<<<<<<< HEAD
             <TabItem Header="Profile">
                 <Frame x:Name="ProfileFrame"/>
             </TabItem>
@@ -19,6 +20,22 @@
             </TabItem>
             <TabItem Header="My companies">
                 <Frame x:Name="MyCompaniesFrame"/>
+=======
+            <TabItem Header="Proffile">
+                <Frame x:Name="_mainFrame"   Source="LoginPage"/>
+            </TabItem>
+            <TabItem Header="My events">
+                <Frame Source="LoginPage"/>
+            </TabItem>
+            <TabItem Header="My certificates">
+                <Frame Source="LoginPage"/>
+            </TabItem>
+            <TabItem Header="My companies">
+                <Frame Source="LoginPage"/>
+            </TabItem>
+            <TabItem Header="Proffile">
+                <Frame Source="LoginPage"/>
+>>>>>>> 37ce7f1705bd682d291b6db9ab7056e726010b72
             </TabItem>
         </TabControl>
     </DockPanel>

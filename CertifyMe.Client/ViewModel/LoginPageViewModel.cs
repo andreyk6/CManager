@@ -47,21 +47,21 @@ namespace CertifyMe.Client.ViewModel
         public LoginPageViewModel(Page page, IWindowViewModel window) : base(page, window)
         {
             _userService = new UserServiceClient();
-            SignIn = new NavigationButtonCommand(this, _signInExecute, _signInCanExecute);
-            Register = new NavigationButtonCommand<LoginPageViewModel>(this, _registerExecute, _registerCanExecute);
+            SignIn = new ActionButtonCommand(this, _signInExecute, _signInCanExecute);
+            Register = new ActionButtonCommand(this, _registerExecute, _registerCanExecute);
         }
 
-        public NavigationButtonCommand<LoginPageViewModel> Register { get; set; }
-        private void _registerExecute(LoginPageViewModel model)
+        public ActionButtonCommand Register { get; set; }
+        private void _registerExecute()
         {
-            Window.CurrentView = new RegistrationPage();
+            Window.CurrentView = new RegistrationPage(Window);
         }
-        private bool _registerCanExecute(LoginPageViewModel model)
+        private bool _registerCanExecute()
         {
             return true;
         }
 
-        public NavigationButtonCommand SignIn { get; set; }
+        public ActionButtonCommand SignIn { get; set; }
         private bool _signInExecuting;
 
         public bool SignInExecuting
@@ -89,8 +89,8 @@ namespace CertifyMe.Client.ViewModel
         {
             SignInExecuting = false;
             //Request to the server
-            bool authResult = true;
-            if (authResult)
+            Guid userId  = _userService.GetUserByCredentials(UserName, Password);
+            if (userId != Guid.Empty)
             {
                 Window.CurrentView = new UserHomePage();
             }
