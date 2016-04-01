@@ -90,6 +90,12 @@ namespace CertifyMe.Client.UserServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int Age {
             get {
@@ -128,23 +134,57 @@ namespace CertifyMe.Client.UserServiceReference {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Login {
+            get {
+                return this.LoginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
+                    this.LoginField = value;
+                    this.RaisePropertyChanged("Login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseDataContract", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.UserServiceReference.UserInfo))]
-    public partial class DmBaseDataContract : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime CreationTimeField;
+        private int AgeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid IdField;
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -157,57 +197,6 @@ namespace CertifyMe.Client.UserServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime CreationTime {
-            get {
-                return this.CreationTimeField;
-            }
-            set {
-                if ((this.CreationTimeField.Equals(value) != true)) {
-                    this.CreationTimeField = value;
-                    this.RaisePropertyChanged("CreationTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Service.DataContracts")]
-    [System.SerializableAttribute()]
-    public partial class UserInfo : CertifyMe.Client.UserServiceReference.DmBaseDataContract {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int AgeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string FirstNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LastNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Age {
             get {
                 return this.AgeField;
@@ -243,6 +232,41 @@ namespace CertifyMe.Client.UserServiceReference {
                     this.LastNameField = value;
                     this.RaisePropertyChanged("LastName");
                 }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Login {
+            get {
+                return this.LoginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
+                    this.LoginField = value;
+                    this.RaisePropertyChanged("Login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
     }
@@ -280,6 +304,12 @@ namespace CertifyMe.Client.UserServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceOf_User_UserInfo/GetAll", ReplyAction="http://tempuri.org/IServiceOf_User_UserInfo/GetAllResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.UserServiceReference.User[]> GetAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByCredentials", ReplyAction="http://tempuri.org/IUserService/GetUserByCredentialsResponse")]
+        System.Guid GetUserByCredentials(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByCredentials", ReplyAction="http://tempuri.org/IUserService/GetUserByCredentialsResponse")]
+        System.Threading.Tasks.Task<System.Guid> GetUserByCredentialsAsync(string login, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -347,6 +377,14 @@ namespace CertifyMe.Client.UserServiceReference {
         
         public System.Threading.Tasks.Task<CertifyMe.Client.UserServiceReference.User[]> GetAllAsync() {
             return base.Channel.GetAllAsync();
+        }
+        
+        public System.Guid GetUserByCredentials(string login, string password) {
+            return base.Channel.GetUserByCredentials(login, password);
+        }
+        
+        public System.Threading.Tasks.Task<System.Guid> GetUserByCredentialsAsync(string login, string password) {
+            return base.Channel.GetUserByCredentialsAsync(login, password);
         }
     }
 }
