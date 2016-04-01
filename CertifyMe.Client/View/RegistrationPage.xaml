@@ -5,35 +5,38 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:CertifyMe.Client.View"
       mc:Ignorable="d" 
-      d:DesignHeight="265"
-      d:DesignWidth="300"
+      MaxHeight="270"
+      MinWidth="300"
+      MaxWidth="400"
       Title="RegistrationPage">
-    <StackPanel Margin="10">
-        <Label Content="Registration form" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14.5"/>
-        <DockPanel Margin="0,5">
-            <Label Content="First name:"></Label>
-            <TextBox Text="{Binding FirstName}"></TextBox>
-        </DockPanel>
-        <DockPanel Margin="0,5">
-            <Label Content="Last name:"></Label>
-            <TextBox Text="{Binding LastName}"></TextBox>
-        </DockPanel>
-        <DockPanel Margin="0,5">
-            <Label Content="Your age:"></Label>
-            <TextBox Text="{Binding Age}" ToolTip=""></TextBox>
-        </DockPanel>
-        <Separator/>
-        <DockPanel Margin="0,5">
-            <Label Content="Login:"></Label>
-            <TextBox Text="{Binding Login}" ToolTip=""></TextBox>
-        </DockPanel>
-        <DockPanel Margin="0,5">
-            <Label Content="Password:"></Label>
-            <TextBox Text="{Binding Password}" ToolTip=""></TextBox>
-        </DockPanel>
-        <DockPanel Margin="0,10">
-            <Button Width="100"  Content="Back"/>
-            <Button HorizontalAlignment="Right" Width="100" Background="LightGreen" Content="Register" Command="{Binding SignUp}"/>
-        </DockPanel>
-    </StackPanel>
+    <DockPanel Background="White">
+        <Label DockPanel.Dock="Top" Content="Registration form" HorizontalAlignment="Center" FontWeight="Bold" FontSize="14.5"/>
+        <StackPanel Margin="10">
+            <DockPanel Margin="0,5">
+                <Label Content="First name:"></Label>
+                <TextBox Text="{Binding FirstName}"></TextBox>
+            </DockPanel>
+            <DockPanel Margin="0,5">
+                <Label Content="Last name:"></Label>
+                <TextBox Text="{Binding LastName}"></TextBox>
+            </DockPanel>
+            <DockPanel Margin="0,5">
+                <Label Content="Your age:"></Label>
+                <TextBox Text="{Binding Age}" ToolTip=""></TextBox>
+            </DockPanel>
+            <Separator/>
+            <DockPanel Margin="0,5">
+                <Label Content="Login:"></Label>
+                <TextBox Text="{Binding Login}" ToolTip=""></TextBox>
+            </DockPanel>
+            <DockPanel Margin="0,5">
+                <Label Content="Password:"></Label>
+                <TextBox Text="{Binding Password}" ToolTip=""></TextBox>
+            </DockPanel>
+            <DockPanel Margin="0,10">
+                <Button Width="100"  Content="Back"/>
+                <Button HorizontalAlignment="Right" Width="100" Background="LightGreen" Content="Register" Command="{Binding SignUp}"/>
+            </DockPanel>
+        </StackPanel>
+    </DockPanel>
 </Page>

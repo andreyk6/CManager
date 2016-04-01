@@ -6,7 +6,7 @@
       xmlns:qc="http://QuickConverter.CodePlex.com/"
       xmlns:local="clr-namespace:CertifyMe.Client.View"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      MaxHeight="235" MaxWidth="300"
       Title="LoginPage">
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
@@ -35,10 +35,10 @@
                 <PasswordBox Name="userPassword" PasswordChar="*" KeyUp="userPassword_KeyUp"/>
             </DockPanel>
             <DockPanel Margin="0,5">
-                <Button Name="SignUp" Width="100" IsEnabled="{qc:Binding '!$P', P={Binding Path=CommandExecuting}}"  Content="Sign Up" Command="{Binding Register}"/>
-                <Button Name="Signin" HorizontalAlignment="Right" Width="100" Content="Sign In" Command="{Binding SignIn}"/>
+                <Button Name="SignUp" Click="SignUp_Click" Width="100" IsEnabled="{qc:Binding '!$P', P={Binding Path=CommandExecuting}}"  Content="Sign Up" Command="{Binding Register}"/>
+                <Button Name="Signin" Click="Signin_Click" HorizontalAlignment="Right" Width="100" Content="Sign In" Command="{Binding SignIn}"/>
             </DockPanel>
-            <ProgressBar Height="10"  Name="LoginProgressBar"  Visibility="{Binding Path=SignInExecuting, Converter={StaticResource BoolToVis}}" IsIndeterminate="True"></ProgressBar>
+            <ProgressBar Height="10"  Name="LoginProgressBar"  Visibility="{Binding Path=SignInExecuting, Converter={StaticResource BoolToVis}}" IsIndeterminate="True"/>
         </StackPanel>
     </DockPanel>
 </Page>

@@ -20,11 +20,22 @@ namespace CertifyMe.Client
         public MainWindow()
         {
             InitializeComponent();
-            //_mainFrame.Navigate(new LoginPage());
+
             var viewModel = new WindowViewModel();
             viewModel.CurrentView = new LoginPage(viewModel);
-            this.DataContext = viewModel;    
+            this.DataContext = viewModel;
 
+            ProfileFrame.Content = new UserProfilePage();
+            MyEventsFrame.Content = new UserEventsPage();
+            MyCertificatesFrame.Content = new UserCertificatesPage();
+            MyCompaniesFrame.Content = new UserCompaniesPage();
+            LoginFrame.Content = viewModel.CurrentView;
+
+        }
+
+
+        public void TestService()
+        {
             //CreateUsers();
             //var users = userService.GetAll();
 
@@ -40,7 +51,6 @@ namespace CertifyMe.Client
             //    var userEvents = eventService.GetUserEvents(user.Id);
             //}
         }
-
         private void RegisterEachUserOnEachEvent(User[] users, Event[] events)
         {
             for (int i = 0; i < events.Length; i++)

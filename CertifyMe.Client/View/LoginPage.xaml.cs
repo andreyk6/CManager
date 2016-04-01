@@ -34,5 +34,15 @@ namespace CertifyMe.Client.View
         {
             model.Password = ((PasswordBox)sender).Password;
         }
+
+        private void SignUp_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new RegistrationPage(model.Window));
+        }
+
+        private void Signin_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
     }
 }
