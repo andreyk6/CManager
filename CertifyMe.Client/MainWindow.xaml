@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
-        <Frame x:Name="_mainFrame"  Content="{Binding CurrentView}"/>
+        <TabControl>
+            <TabItem Header="Profile">
+                <Frame x:Name="ProfileFrame"/>
+            </TabItem>
+            <TabItem Header="My events">
+                <Frame x:Name="MyEventsFrame"/>
+            </TabItem>
+            <TabItem Header="My certificates">
+                <Frame x:Name="MyCertificatesFrame"/>
+            </TabItem>
+            <TabItem Header="My companies">
+                <Frame x:Name="MyCompaniesFrame"/>
+            </TabItem>
+        </TabControl>
     </DockPanel>
 </Window>
