@@ -23,10 +23,10 @@ namespace CertifyMe.Client.View
     {
         LoginPageViewModel model;
 
-        public LoginPage(IWindowViewModel window)
+        public LoginPage()
         {
             InitializeComponent();
-            model = new LoginPageViewModel(this, window);
+            model = new LoginPageViewModel();
             this.DataContext = model;
         }
 
@@ -37,12 +37,19 @@ namespace CertifyMe.Client.View
 
         private void SignUp_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new RegistrationPage(model.Window));
+            this.NavigationService.Navigate(new RegistrationPage());
         }
 
         private void Signin_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            if (model.SignInExecute())
+            {
+                Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                MessageBox.Show("User not found");
+            }
         }
     }
 }

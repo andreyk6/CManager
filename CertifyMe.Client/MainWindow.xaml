@@ -23,8 +23,8 @@
                 </TabItem>
             </TabControl>
         </DockPanel>
-        <Grid x:Name="Login" Background="#7F000000" Visibility="{Binding LoginFrame.Visibility}">
-            <Frame Margin="10" NavigationUIVisibility="Hidden" Width="Auto" Height="Auto" x:Name="LoginFrame"/>
+        <Grid x:Name="Login">
+            <Frame NavigationUIVisibility="Hidden" Width="Auto" Height="Auto" Name="LoginFrame"/>
         </Grid>
     </Grid>
 </Window>

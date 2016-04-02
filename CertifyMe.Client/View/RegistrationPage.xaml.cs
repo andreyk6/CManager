@@ -22,11 +22,31 @@ namespace CertifyMe.Client.View
     public partial class RegistrationPage : Page
     {
         RegistrationPageViewModel model;
-        public RegistrationPage(IWindowViewModel window)
+        public RegistrationPage()
         {
             InitializeComponent();
-            model = new RegistrationPageViewModel(this, window);
+            model = new RegistrationPageViewModel();
             this.DataContext = model;
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            if (model.SignUpExecute())
+            {
+                NavigationService.Navigate(new LoginPage());
+            }
+            else
+            {
+                MessageBox.Show("Can't register the user");
+            }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
         }
     }
 }

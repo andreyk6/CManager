@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace CertifyMe.Client.ViewModel
 {
-    public class RegistrationPageViewModel : PageViewModel
+    public class RegistrationPageViewModel : ViewModelBase
     {
         private UserServiceClient _userService;
 
@@ -30,53 +30,41 @@ namespace CertifyMe.Client.ViewModel
         }
         private UserInfo _userInfo;
 
-        public RegistrationPageViewModel(Page page, IWindowViewModel window) : base(page, window)
+        public RegistrationPageViewModel()
         {
             _userService = new UserServiceClient();
             _userInfo = new UserInfo();
-            SignUp = new ActionButtonCommand(this, _signUpExecute, _signUpCanExecute);
         }
 
-        public ActionButtonCommand SignUp { get; set; }
-        private bool _signUpCanExecute()
+        public bool SignUpCanExecute
         {
-            if (string.IsNullOrEmpty(Login) ||
-                string.IsNullOrEmpty(Password) ||
-                string.IsNullOrEmpty(FirstName) ||
-                string.IsNullOrEmpty(LastName) ||
-                Age < 18 || Age > 150)
+            get
             {
-                return false;
-            }
-            return true;
-        }
-        private void _signUpExecute()
-        {
-            SignUpExecuting = false;
-            //Request to the server
-            var userId = _userService.Add(_userInfo);
-            if (userId != Guid.Empty)
-            {
-                Window.CurrentView = new LoginPage(Window);
-            }
-            else
-            {
+                if (string.IsNullOrEmpty(Login) ||
+                    string.IsNullOrEmpty(Password) ||
+                    string.IsNullOrEmpty(FirstName) ||
+                    string.IsNullOrEmpty(LastName) ||
+                    Age < 18 || Age > 150)
+                {
+                    return false;
+                }
+                return true;
             }
         }
-
-        public bool SignUpExecuting
+        public bool SignUpExecute()
         {
-            get { return _signUpExecuting; }
-            set
+            if (SignUpCanExecute)
             {
-                if (value == _signUpExecuting)
-                    return;
-
-                _signUpExecuting = value;
-                OnPropertyChanged("SignUpExecuting");
+                //Request to the server
+                var userId = _userService.Add(_userInfo);
+                if (userId != Guid.Empty)
+                {
+                    return true;
+                    //Window.CurrentView = new LoginPage(Window);
+                }
             }
+            return false;
         }
-        private bool _signUpExecuting;
 
         public string Login
         {
@@ -87,6 +75,7 @@ namespace CertifyMe.Client.ViewModel
                     return;
                 UserInfo.Login = value;
                 OnPropertyChanged("Login");
+                OnPropertyChanged("SignUpCanExecute");
             }
         }
         public string Password
@@ -98,6 +87,7 @@ namespace CertifyMe.Client.ViewModel
                     return;
                 UserInfo.Password = value;
                 OnPropertyChanged("Password");
+                OnPropertyChanged("SignUpCanExecute");
             }
         }
         public string FirstName
@@ -109,6 +99,7 @@ namespace CertifyMe.Client.ViewModel
                     return;
                 UserInfo.FirstName = value;
                 OnPropertyChanged("FirstName");
+                OnPropertyChanged("SignUpCanExecute");
             }
         }
         public string LastName
@@ -120,6 +111,7 @@ namespace CertifyMe.Client.ViewModel
                     return;
                 UserInfo.LastName = value;
                 OnPropertyChanged("LastName");
+                OnPropertyChanged("SignUpCanExecute");
             }
         }
         public int Age
@@ -131,6 +123,7 @@ namespace CertifyMe.Client.ViewModel
                     return;
                 UserInfo.Age = value;
                 OnPropertyChanged("Age");
+                OnPropertyChanged("SignUpCanExecute");
             }
         }
     }

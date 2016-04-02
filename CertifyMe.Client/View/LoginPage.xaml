@@ -5,40 +5,40 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:qc="http://QuickConverter.CodePlex.com/"
       xmlns:local="clr-namespace:CertifyMe.Client.View"
-      mc:Ignorable="d" 
-      MaxHeight="235" MaxWidth="300"
+      mc:Ignorable="d"
       Title="LoginPage">
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Page.Resources>
-    <DockPanel Background="White">
-        <Grid DockPanel.Dock="Top" Height="100">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="White" Offset="0.912"/>
-                    <GradientStop Color="#FFFFAE00"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Label Margin="0,10,0,0"  HorizontalAlignment="Center" Content="Certify.Me" FontSize="40" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="Black">
-                <Label.Effect>
-                    <DropShadowEffect Color="#FFF0CF3C"/>
-                </Label.Effect>
-            </Label>
-        </Grid>
-        <StackPanel Margin="10">
-            <DockPanel Margin="0,5">
-                <Label DockPanel.Dock="Left" Content="User name: "/>
-                <TextBox Name="userName" Text="{Binding Path=UserName}"/>
-            </DockPanel>
-            <DockPanel Margin="0,5">
-                <Label DockPanel.Dock="Left" Content="Password: "/>
-                <PasswordBox Name="userPassword" PasswordChar="*" KeyUp="userPassword_KeyUp"/>
-            </DockPanel>
-            <DockPanel Margin="0,5">
-                <Button Name="SignUp" Click="SignUp_Click" Width="100" IsEnabled="{qc:Binding '!$P', P={Binding Path=CommandExecuting}}"  Content="Sign Up" Command="{Binding Register}"/>
-                <Button Name="Signin" Click="Signin_Click" HorizontalAlignment="Right" Width="100" Content="Sign In" Command="{Binding SignIn}"/>
-            </DockPanel>
-            <ProgressBar Height="10"  Name="LoginProgressBar"  Visibility="{Binding Path=SignInExecuting, Converter={StaticResource BoolToVis}}" IsIndeterminate="True"/>
-        </StackPanel>
-    </DockPanel>
+    <Grid Background="#7F000000">
+        <DockPanel Margin="5" MaxHeight="235" MaxWidth="300" Background="White">
+            <Grid DockPanel.Dock="Top" Height="100">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="White" Offset="0.912"/>
+                        <GradientStop Color="#FFFFAE00"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Label Margin="0,10,0,0"  HorizontalAlignment="Center" Content="Certify.Me" FontSize="40" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="Black">
+                    <Label.Effect>
+                        <DropShadowEffect Color="#FFF0CF3C"/>
+                    </Label.Effect>
+                </Label>
+            </Grid>
+            <StackPanel Margin="10">
+                <DockPanel Margin="0,5">
+                    <Label DockPanel.Dock="Left" Content="User name: "/>
+                    <TextBox Name="userName" Text="{Binding Path=UserName}"/>
+                </DockPanel>
+                <DockPanel Margin="0,5">
+                    <Label DockPanel.Dock="Left" Content="Password: "/>
+                    <PasswordBox Name="userPassword" PasswordChar="*" KeyUp="userPassword_KeyUp"/>
+                </DockPanel>
+                <DockPanel Margin="0,5">
+                    <Button Name="SignUp" Click="SignUp_Click" Width="100" Content="Sign Up"/>
+                    <Button Name="Signin" Click="Signin_Click" HorizontalAlignment="Right" Width="100" Content="Sign In" IsEnabled="{Binding SignInCanExecute}"/>
+                </DockPanel>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
 </Page>

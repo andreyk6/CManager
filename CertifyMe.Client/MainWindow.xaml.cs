@@ -22,7 +22,7 @@ namespace CertifyMe.Client
             InitializeComponent();
 
             var viewModel = new WindowViewModel();
-            viewModel.CurrentView = new LoginPage(viewModel);
+            viewModel.CurrentView = new LoginPage();
             this.DataContext = viewModel;
 
             ProfileFrame.Content = new UserProfilePage();

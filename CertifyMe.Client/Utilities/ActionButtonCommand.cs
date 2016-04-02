@@ -10,13 +10,13 @@ namespace CertifyMe.Client.Utilities
 {
     public class ActionButtonCommand : ICommand
     {
-        private IPageViewModel _model;
+        private ViewModelBase _model;
         private CanExecuteDelegate _canExecute;
         private ExecuteDelegate _execute;
 
         public event EventHandler CanExecuteChanged;
 
-        public ActionButtonCommand(IPageViewModel viewModel, ExecuteDelegate execute, CanExecuteDelegate canExecute)
+        public ActionButtonCommand(ViewModelBase viewModel, ExecuteDelegate execute, CanExecuteDelegate canExecute)
         {
             _model = viewModel;
             _execute = execute;

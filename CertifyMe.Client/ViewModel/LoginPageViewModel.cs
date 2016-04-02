@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace CertifyMe.Client.ViewModel
 {
-    public class LoginPageViewModel : PageViewModel
+    public class LoginPageViewModel : ViewModelBase
     {
         private UserServiceClient _userService;
 
@@ -27,6 +27,7 @@ namespace CertifyMe.Client.ViewModel
 
                 _userName = value;
                 OnPropertyChanged("UserName");
+                OnPropertyChanged("SignInCanExecute");
             }
         }
 
@@ -41,63 +42,34 @@ namespace CertifyMe.Client.ViewModel
 
                 _password = value;
                 OnPropertyChanged("Password");
+                OnPropertyChanged("SignInCanExecute");
             }
         }
 
-        public LoginPageViewModel(Page page, IWindowViewModel window) : base(page, window)
+        public LoginPageViewModel()
         {
             _userService = new UserServiceClient();
-            SignIn = new ActionButtonCommand(this, _signInExecute, _signInCanExecute);
-            Register = new ActionButtonCommand(this, _registerExecute, _registerCanExecute);
         }
 
-        public ActionButtonCommand Register { get; set; }
-        private void _registerExecute()
+        public bool SignInCanExecute
         {
-            Window.CurrentView = new RegistrationPage(Window);
-        }
-        private bool _registerCanExecute()
-        {
-            return true;
-        }
-
-        public ActionButtonCommand SignIn { get; set; }
-        private bool _signInExecuting;
-
-        public bool SignInExecuting
-        {
-            get { return _signInExecuting; }
-            set
+            get
             {
-                if (value == _signInExecuting)
-                    return;
-
-                _signInExecuting = value;
-                OnPropertyChanged("SignInExecuting");
+                if (string.IsNullOrEmpty(UserName) ||
+                    string.IsNullOrEmpty(Password))
+                {
+                    return false;
+                }
+                return true;
             }
         }
-        private bool _signInCanExecute()
+        public bool SignInExecute()
         {
-            if (string.IsNullOrEmpty(UserName) ||
-                string.IsNullOrEmpty(Password))
-            {
-                return false;
-            }
-            return true;
-        }
-        private void _signInExecute()
-        {
-            SignInExecuting = false;
             //Request to the server
-            Guid userId  = _userService.GetUserByCredentials(UserName, Password);
+            Guid userId = _userService.GetUserByCredentials(UserName, Password);
             if (userId != Guid.Empty)
-            {
-                Window.CurrentView = new UserHomePage();
-            }
-            else
-            {
-                //notify user about login result
-            }
+                return true;
+            return false;
         }
     }
 }
