@@ -9,6 +9,9 @@
     <Grid>
         <DockPanel>
             <TabControl x:Name="UserHome">
+                <TabItem Header="New events">
+                    <Frame x:Name="EventsListFrame"/>
+                </TabItem>
                 <TabItem Header="Profile">
                     <Frame x:Name="ProfileFrame"/>
                 </TabItem>
