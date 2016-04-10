@@ -21,10 +21,18 @@ namespace CertifyMe.Client
         {
             InitializeComponent();
 
+
+            if (userService.GetAll().Length == 0)
+            {
+                CreateTestInstances();
+            }
+
             var viewModel = new WindowViewModel();
             viewModel.CurrentView = new LoginPage();
+
             this.DataContext = viewModel;
 
+            EventsListFrame.Content = new UserHomePage();
             ProfileFrame.Content = new UserProfilePage();
             MyEventsFrame.Content = new UserEventsPage();
             MyCertificatesFrame.Content = new UserCertificatesPage();
@@ -33,23 +41,22 @@ namespace CertifyMe.Client
 
         }
 
-
-        public void TestService()
+        public void CreateTestInstances()
         {
-            //CreateUsers();
-            //var users = userService.GetAll();
+            CreateUsers();
+            var users = userService.GetAll();
 
-            //CreateCompanyForEachUser(users);
-            //var companies = companyService.GetAll();
+            CreateCompanyForEachUser(users);
+            var companies = companyService.GetAll();
 
-            //CreateEventForEachCompany(companies);
-            //var events = eventService.GetAll();
+            CreateEventForEachCompany(companies);
+            var events = eventService.GetAll();
 
-            //RegisterEachUserOnEachEvent(users, events);
-            //foreach(var user in users)
-            //{
-            //    var userEvents = eventService.GetUserEvents(user.Id);
-            //}
+            RegisterEachUserOnEachEvent(users, events);
+            foreach (var user in users)
+            {
+                var userEvents = eventService.GetUserEvents(user.Id);
+            }
         }
         private void RegisterEachUserOnEachEvent(User[] users, Event[] events)
         {
@@ -66,6 +73,12 @@ namespace CertifyMe.Client
             }
         }
 
+        static Random rnd = new Random();
+        string[] locations = {"Ukraine, Kiev", "Ukraine, Lviv", "USA, Arizona, Phoenix", "USA, Boston", "Ukraine", "USA" };
+        private string GetRandomLocation()
+        {
+            return locations[rnd.Next(locations.Length)];
+        }
         private void CreateEventForEachCompany(Company[] companies)
         {
             for (int i = 0; i < companies.Length; i++)
@@ -75,8 +88,9 @@ namespace CertifyMe.Client
                     CompanyId = companies[i].Id,
                     Name = "Event " + i,
                     Description = "Event description",
-                    StartDate = DateTime.Now,
-                    EndDate = DateTime.Now.Add(new TimeSpan())
+                    StartDate = DateTime.Now + new TimeSpan(rnd.Next(4),0,0,0),
+                    Location = GetRandomLocation(),
+                    EndDate = DateTime.Now.Add(new TimeSpan(10,5,45,0))
                 };
                 eventService.Add(@event);
             }
@@ -105,6 +119,8 @@ namespace CertifyMe.Client
                     Age = 18 + i,
                     FirstName = "User",
                     LastName = "Generated" + i,
+                    Login = "login" + i,
+                    Password = "password"
                 };
                 userService.Add(user);
             }
