@@ -64,16 +64,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Control\CommentControl.xaml.cs">
+      <DependentUpon>CommentControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\EventInfoShort.xaml.cs">
       <DependentUpon>EventInfoShort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\BaseCommand.cs" />
+    <Compile Include="ViewModel\EvenViewModel.cs" />
     <Compile Include="ViewModel\IPageViewModel.cs" />
     <Compile Include="ViewModel\IWindowViewModel.cs" />
     <Compile Include="ViewModel\RegistrationPageViewModel.cs" />
+    <Compile Include="ViewModel\SystemUser.cs" />
     <Compile Include="ViewModel\UserHomePageViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
+    <Compile Include="View\EventViewWindow.xaml.cs">
+      <DependentUpon>EventViewWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -112,6 +120,10 @@
     <Compile Include="View\UserProfilePage.xaml.cs">
       <DependentUpon>UserProfilePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Control\CommentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Control\EventInfoShort.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +140,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\EventViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +217,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EventServiceReference\CertifyMe.Client.EventServiceReference.EventComment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EventServiceReference\CertifyMe.Client.EventServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\EventServiceReference\EventService.wsdl" />

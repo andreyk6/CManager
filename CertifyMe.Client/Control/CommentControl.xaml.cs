@@ -1,6 +1,4 @@
-﻿using CertifyMe.Client.EventServiceReference;
-using CertifyMe.Client.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,19 +16,13 @@ using System.Windows.Shapes;
 namespace CertifyMe.Client.Control
 {
     /// <summary>
-    /// Interaction logic for EventInfoShort.xaml
+    /// Interaction logic for CommentControl.xaml
     /// </summary>
-    public partial class EventInfoShort : UserControl
+    public partial class CommentControl : UserControl
     {
-        public EventInfoShort()
+        public CommentControl()
         {
             InitializeComponent();
-        }
-
-        private void Details_Click(object sender, RoutedEventArgs e)
-        {
-            var eventInfo = new EventViewWindow((this.DataContext as Event).Id);
-            eventInfo.Show();
         }
     }
 }

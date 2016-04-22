@@ -112,6 +112,7 @@ namespace CertifyMe.Client.ViewModel
             Companies = companies.ToArray();
         }
 
+
         private bool _updateSearchCanExecute(object parameter)
         {
             return true;

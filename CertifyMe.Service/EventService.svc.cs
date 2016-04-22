@@ -86,7 +86,7 @@ namespace CertifyMe.Service
 
         public bool UnregisterUser(Guid userId, Guid eventId)
         {
-            var eventRegistration = EventRegistration.Items.Values.Where(r => r.Event.Id == eventId && r.User.Id == userId).Single();
+            var eventRegistration = EventRegistration.Items.Values.Where(r => r.Event.Id == eventId && r.User.Id == userId).FirstOrDefault();
             if (eventRegistration != null)
             {
                 return EventRegistration.Items.Remove(eventRegistration.Id);
@@ -96,7 +96,7 @@ namespace CertifyMe.Service
 
         public List<EventComment> GetComments(Guid eventId)
         {
-            if (User.Items.Keys.Contains(eventId))
+            if (Event.Items.Keys.Contains(eventId))
             {
                 return Event.Items[eventId].Comments;
             }
@@ -119,6 +119,29 @@ namespace CertifyMe.Service
                 return Company.Items[companyId].Events.ToList();
             }
             return null;
+        }
+
+        public List<User> GetParticipants(Guid eventId)
+        {
+            if (Event.Items.Keys.Contains(eventId))
+            {
+                return Event.Items[eventId].Participants.ToList();
+            }
+            return null;
+        }
+
+        public bool AddComment(Guid userId, Guid eventId, string comment)
+        {
+            if (User.Items.Keys.Contains(userId))
+                if (Event.Items.Keys.Contains(eventId))
+                {
+                    new EventComment(userId, eventId)
+                    {
+                        Text = comment
+                    };
+                    return true;
+                }
+            return false;
         }
     }
 }

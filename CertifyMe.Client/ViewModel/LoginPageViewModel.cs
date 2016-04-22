@@ -68,7 +68,10 @@ namespace CertifyMe.Client.ViewModel
             //Request to the server
             Guid userId = _userService.GetUserByCredentials(UserName, Password);
             if (userId != Guid.Empty)
+            {
+                SystemUser.Id = userId;
                 return true;
+            }
             return false;
         }
     }

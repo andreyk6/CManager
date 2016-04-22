@@ -101,45 +101,75 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddComment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userId" type="q12:guid" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="eventId" type="q13:guid" />
+        <xs:element minOccurs="0" name="comment" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCommentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCommentResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetComments">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="eventId" type="q12:guid" />
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="eventId" type="q14:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCommentsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/CertifyMe.Data" minOccurs="0" name="GetCommentsResult" nillable="true" type="q13:ArrayOfEventComment" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CertifyMe.Data" minOccurs="0" name="GetCommentsResult" nillable="true" type="q15:ArrayOfEventComment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUserEvents">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userId" type="q14:guid" />
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="userId" type="q16:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUserEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/CertifyMe.Data" minOccurs="0" name="GetUserEventsResult" nillable="true" type="q15:ArrayOfEvent" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CertifyMe.Data" minOccurs="0" name="GetUserEventsResult" nillable="true" type="q17:ArrayOfEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetParticipants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="eventId" type="q18:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetParticipantsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/CertifyMe.Data" minOccurs="0" name="GetParticipantsResult" nillable="true" type="q19:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCompanyEvents">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="companyId" type="q16:guid" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="companyId" type="q20:guid" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCompanyEventsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/CertifyMe.Data" minOccurs="0" name="GetCompanyEventsResult" nillable="true" type="q17:ArrayOfEvent" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/CertifyMe.Data" minOccurs="0" name="GetCompanyEventsResult" nillable="true" type="q21:ArrayOfEvent" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

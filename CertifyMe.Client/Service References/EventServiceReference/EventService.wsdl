@@ -50,6 +50,12 @@
   <wsdl:message name="IEventService_UnregisterUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:UnregisterUserResponse" />
   </wsdl:message>
+  <wsdl:message name="IEventService_AddComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddComment" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_AddComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCommentResponse" />
+  </wsdl:message>
   <wsdl:message name="IEventService_GetComments_InputMessage">
     <wsdl:part name="parameters" element="tns:GetComments" />
   </wsdl:message>
@@ -61,6 +67,12 @@
   </wsdl:message>
   <wsdl:message name="IEventService_GetUserEvents_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_GetParticipants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetParticipants" />
+  </wsdl:message>
+  <wsdl:message name="IEventService_GetParticipants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetParticipantsResponse" />
   </wsdl:message>
   <wsdl:message name="IEventService_GetCompanyEvents_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCompanyEvents" />
@@ -97,6 +109,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IEventService/UnregisterUser" message="tns:IEventService_UnregisterUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEventService/UnregisterUserResponse" message="tns:IEventService_UnregisterUser_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventService/AddComment" message="tns:IEventService_AddComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventService/AddCommentResponse" message="tns:IEventService_AddComment_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetComments">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventService/GetComments" message="tns:IEventService_GetComments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEventService/GetCommentsResponse" message="tns:IEventService_GetComments_OutputMessage" />
@@ -104,6 +120,10 @@
     <wsdl:operation name="GetUserEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventService/GetUserEvents" message="tns:IEventService_GetUserEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IEventService/GetUserEventsResponse" message="tns:IEventService_GetUserEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetParticipants">
+      <wsdl:input wsaw:Action="http://tempuri.org/IEventService/GetParticipants" message="tns:IEventService_GetParticipants_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IEventService/GetParticipantsResponse" message="tns:IEventService_GetParticipants_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCompanyEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/IEventService/GetCompanyEvents" message="tns:IEventService_GetCompanyEvents_InputMessage" />
@@ -175,6 +195,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddComment">
+      <soap:operation soapAction="http://tempuri.org/IEventService/AddComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetComments">
       <soap:operation soapAction="http://tempuri.org/IEventService/GetComments" style="document" />
       <wsdl:input>
@@ -186,6 +215,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserEvents">
       <soap:operation soapAction="http://tempuri.org/IEventService/GetUserEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetParticipants">
+      <soap:operation soapAction="http://tempuri.org/IEventService/GetParticipants" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

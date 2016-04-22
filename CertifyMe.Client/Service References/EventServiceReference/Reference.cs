@@ -460,6 +460,155 @@ namespace CertifyMe.Client.EventServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
+    [System.SerializableAttribute()]
+    public partial class User : CertifyMe.Client.EventServiceReference.DmBaseOfUseruL7agKBo {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((this.AgeField.Equals(value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Login {
+            get {
+                return this.LoginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
+                    this.LoginField = value;
+                    this.RaisePropertyChanged("Login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DmBaseOfUseruL7agKBo", Namespace="http://schemas.datacontract.org/2004/07/CertifyMe.Data")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CertifyMe.Client.EventServiceReference.User))]
+    public partial class DmBaseOfUseruL7agKBo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime CreationTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime CreationTime {
+            get {
+                return this.CreationTimeField;
+            }
+            set {
+                if ((this.CreationTimeField.Equals(value) != true)) {
+                    this.CreationTimeField = value;
+                    this.RaisePropertyChanged("CreationTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="EventServiceReference.IEventService")]
     public interface IEventService {
@@ -506,6 +655,12 @@ namespace CertifyMe.Client.EventServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/UnregisterUser", ReplyAction="http://tempuri.org/IEventService/UnregisterUserResponse")]
         System.Threading.Tasks.Task<bool> UnregisterUserAsync(System.Guid userId, System.Guid eventId);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/AddComment", ReplyAction="http://tempuri.org/IEventService/AddCommentResponse")]
+        bool AddComment(System.Guid userId, System.Guid eventId, string comment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/AddComment", ReplyAction="http://tempuri.org/IEventService/AddCommentResponse")]
+        System.Threading.Tasks.Task<bool> AddCommentAsync(System.Guid userId, System.Guid eventId, string comment);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/GetComments", ReplyAction="http://tempuri.org/IEventService/GetCommentsResponse")]
         CertifyMe.Client.EventServiceReference.EventComment[] GetComments(System.Guid eventId);
         
@@ -517,6 +672,12 @@ namespace CertifyMe.Client.EventServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/GetUserEvents", ReplyAction="http://tempuri.org/IEventService/GetUserEventsResponse")]
         System.Threading.Tasks.Task<CertifyMe.Client.EventServiceReference.Event[]> GetUserEventsAsync(System.Guid userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/GetParticipants", ReplyAction="http://tempuri.org/IEventService/GetParticipantsResponse")]
+        CertifyMe.Client.EventServiceReference.User[] GetParticipants(System.Guid eventId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/GetParticipants", ReplyAction="http://tempuri.org/IEventService/GetParticipantsResponse")]
+        System.Threading.Tasks.Task<CertifyMe.Client.EventServiceReference.User[]> GetParticipantsAsync(System.Guid eventId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IEventService/GetCompanyEvents", ReplyAction="http://tempuri.org/IEventService/GetCompanyEventsResponse")]
         CertifyMe.Client.EventServiceReference.Event[] GetCompanyEvents(System.Guid companyId);
@@ -608,6 +769,14 @@ namespace CertifyMe.Client.EventServiceReference {
             return base.Channel.UnregisterUserAsync(userId, eventId);
         }
         
+        public bool AddComment(System.Guid userId, System.Guid eventId, string comment) {
+            return base.Channel.AddComment(userId, eventId, comment);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddCommentAsync(System.Guid userId, System.Guid eventId, string comment) {
+            return base.Channel.AddCommentAsync(userId, eventId, comment);
+        }
+        
         public CertifyMe.Client.EventServiceReference.EventComment[] GetComments(System.Guid eventId) {
             return base.Channel.GetComments(eventId);
         }
@@ -622,6 +791,14 @@ namespace CertifyMe.Client.EventServiceReference {
         
         public System.Threading.Tasks.Task<CertifyMe.Client.EventServiceReference.Event[]> GetUserEventsAsync(System.Guid userId) {
             return base.Channel.GetUserEventsAsync(userId);
+        }
+        
+        public CertifyMe.Client.EventServiceReference.User[] GetParticipants(System.Guid eventId) {
+            return base.Channel.GetParticipants(eventId);
+        }
+        
+        public System.Threading.Tasks.Task<CertifyMe.Client.EventServiceReference.User[]> GetParticipantsAsync(System.Guid eventId) {
+            return base.Channel.GetParticipantsAsync(eventId);
         }
         
         public CertifyMe.Client.EventServiceReference.Event[] GetCompanyEvents(System.Guid companyId) {

@@ -20,10 +20,16 @@ namespace CertifyMe.Service
         bool UnregisterUser(Guid userId, Guid eventId);
 
         [OperationContract]
+        bool AddComment(Guid userId, Guid eventId, string comment);
+
+        [OperationContract]
         List<EventComment> GetComments(Guid eventId);
 
         [OperationContract]
         List<Event> GetUserEvents(Guid userId);
+
+        [OperationContract]
+        List<User> GetParticipants(Guid eventId);
 
         [OperationContract]
         List<Event> GetCompanyEvents(Guid companyId);

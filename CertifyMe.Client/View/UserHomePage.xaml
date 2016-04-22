@@ -30,7 +30,7 @@
         </StackPanel>
         <ScrollViewer DockPanel.Dock="Left">
             <StackPanel>
-                <ListView x:Name="EventsList" ItemsSource="{Binding EventsResult}">
+                <ListView x:Name="EventsList" HorizontalContentAlignment="Center" ItemsSource="{Binding EventsResult}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <uc:EventInfoShort/>

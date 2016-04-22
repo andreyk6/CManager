@@ -53,12 +53,8 @@ namespace CertifyMe.Client
             var events = eventService.GetAll();
 
             RegisterEachUserOnEachEvent(users, events);
-            foreach (var user in users)
-            {
-                var userEvents = eventService.GetUserEvents(user.Id);
-            }
         }
-        private void RegisterEachUserOnEachEvent(User[] users, Event[] events)
+        private void RegisterEachUserOnEachEvent(UserServiceReference.User[] users, Event[] events)
         {
             for (int i = 0; i < events.Length; i++)
             {
@@ -96,7 +92,7 @@ namespace CertifyMe.Client
             }
         }
 
-        private void CreateCompanyForEachUser(User[] users)
+        private void CreateCompanyForEachUser(UserServiceReference.User[] users)
         {
             for (var i = 0; i < users.Length; i++)
             {
