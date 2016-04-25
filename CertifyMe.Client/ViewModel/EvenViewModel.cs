@@ -184,7 +184,7 @@ namespace CertifyMe.Client.ViewModel
             Comment = new BaseCommand(_commentExecute, _commentCanExecute);
             Subscribe = new BaseCommand(_subscribeExecute, _subscribeCanExecute);
 
-            if (_participants.Any(u => u.Id == SystemUser.Id))
+            if (Participants.Any(u => u.Id == SystemUser.Id))
             {
                 SubscribeBtnText = "UnSubscribe";
             }
