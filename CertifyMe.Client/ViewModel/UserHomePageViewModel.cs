@@ -126,7 +126,7 @@ namespace CertifyMe.Client.ViewModel
                 searchResult = Events.Where(e => e.CompanyId == SelectedCompany.Id);
 
             if (!string.IsNullOrWhiteSpace(SearchLocation))
-                searchResult = searchResult.Where(e => e.Location.Contains(SearchLocation));
+                searchResult = searchResult.Where(e => e.Location.ToLower().Contains(SearchLocation.ToLower()));
 
             EventsResult = searchResult;
         }
