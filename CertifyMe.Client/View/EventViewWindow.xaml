@@ -28,17 +28,17 @@
             <TabItem Header="Comments">
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="75px"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="60px"/>
                     </Grid.RowDefinitions>
-                    <ListBox Grid.Row="0" ItemsSource="{Binding Comments}" Background="Aqua">
+                    <ListBox Grid.Row="1" ItemsSource="{Binding Comments}" Background="Aqua">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <uc:CommentControl/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <StackPanel Grid.Row="1">
+                    <StackPanel Grid.Row="0">
                         <TextBox TextWrapping="Wrap" Height="40px" Text="{Binding CommentText}"/>
                         <Button Content="Comment" Command="{Binding Comment}" HorizontalAlignment="Right"/>
                     </StackPanel>
