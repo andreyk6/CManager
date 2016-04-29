@@ -79,12 +79,13 @@
       <DependentUpon>EventInfoShort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\BaseCommand.cs" />
-    <Compile Include="ViewModel\EvenViewModel.cs" />
+    <Compile Include="ViewModel\EventViewModel.cs" />
     <Compile Include="ViewModel\IPageViewModel.cs" />
     <Compile Include="ViewModel\IWindowViewModel.cs" />
     <Compile Include="ViewModel\RegistrationPageViewModel.cs" />
     <Compile Include="ViewModel\SystemUser.cs" />
-    <Compile Include="ViewModel\UserHomePageViewModel.cs" />
+    <Compile Include="ViewModel\EventsListViewModel.cs" />
+    <Compile Include="ViewModel\UserEventsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="View\EventViewWindow.xaml.cs">
@@ -119,11 +120,8 @@
     <Compile Include="View\UserCompaniesPage.xaml.cs">
       <DependentUpon>UserCompaniesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserEventsPage.xaml.cs">
-      <DependentUpon>UserEventsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserHomePage.xaml.cs">
-      <DependentUpon>UserHomePage.xaml</DependentUpon>
+    <Compile Include="View\EventsListPage.xaml.cs">
+      <DependentUpon>EventsListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserProfilePage.xaml.cs">
       <DependentUpon>UserProfilePage.xaml</DependentUpon>
@@ -168,11 +166,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserEventsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UserHomePage.xaml">
+    <Page Include="View\EventsListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

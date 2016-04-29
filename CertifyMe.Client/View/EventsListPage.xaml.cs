@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CertifyMe.Client.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace CertifyMe.Client.View
 {
     /// <summary>
-    /// Interaction logic for UserEventsPage.xaml
+    /// Interaction logic for UserHomePage.xaml
     /// </summary>
-    public partial class UserEventsPage : Page
+    public partial class EventsListPage : Page
     {
-        public UserEventsPage()
+        public EventsListPage(EventsListViewModel model)
         {
             InitializeComponent();
+            this.DataContext = model;
         }
     }
 }
