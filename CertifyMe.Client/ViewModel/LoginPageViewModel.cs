@@ -69,7 +69,7 @@ namespace CertifyMe.Client.ViewModel
             Guid userId = _userService.GetUserByCredentials(UserName, Password);
             if (userId != Guid.Empty)
             {
-                SystemUser.Id = userId;
+                SystemUser.Instance.Id = userId;
                 return true;
             }
             return false;
