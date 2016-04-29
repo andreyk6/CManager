@@ -129,7 +129,7 @@ namespace CertifyMe.Client.ViewModel
         }
         private void _commentExecute(object parameter)
         {
-            if (_eventService.AddComment(SystemUser.Id, _event.Id, CommentText))
+            if (_eventService.AddComment(SystemUser.Instance.Id, _event.Id, CommentText))
             {
                 CommentText = "";
                 Comments = _eventService.GetComments(_event.Id).ToList();
@@ -162,12 +162,12 @@ namespace CertifyMe.Client.ViewModel
         {
             if (SubscribeBtnText == "Subscribe")
             {
-                if (_eventService.RegisterUser(SystemUser.Id, _event.Id))
+                if (_eventService.RegisterUser(SystemUser.Instance.Id, _event.Id))
                     SubscribeBtnText = "UnSubscribe";
             }
             else
             {
-                if (_eventService.UnregisterUser(SystemUser.Id, _event.Id))
+                if (_eventService.UnregisterUser(SystemUser.Instance.Id, _event.Id))
                     SubscribeBtnText = "Subscribe";
             }
         }
@@ -184,7 +184,7 @@ namespace CertifyMe.Client.ViewModel
             Comment = new BaseCommand(_commentExecute, _commentCanExecute);
             Subscribe = new BaseCommand(_subscribeExecute, _subscribeCanExecute);
 
-            if (Participants.Any(u => u.Id == SystemUser.Id))
+            if (Participants.Any(u => u.Id == SystemUser.Instance.Id))
             {
                 SubscribeBtnText = "UnSubscribe";
             }

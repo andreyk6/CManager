@@ -10,9 +10,9 @@ using System.Windows.Input;
 
 namespace CertifyMe.Client.ViewModel
 {
-    public class UserHomePageViewModel : ViewModelBase
+    public class EventsListViewModel : ViewModelBase
     {
-        EventServiceClient _eventClient = new EventServiceClient();
+        protected EventServiceClient _eventClient = new EventServiceClient();
         CompanyServiceClient _companyClient = new CompanyServiceClient();
 
         Event[] _events;
@@ -98,10 +98,12 @@ namespace CertifyMe.Client.ViewModel
             }
         }
 
-        public UserHomePageViewModel()
+        public EventsListViewModel()
         {
-            Events = _eventClient.GetAll();
-            EventsResult = Events;
+            SystemUser.Instance.PropertyChanged += (o, args) => { if (args.PropertyName == "Id") LoadEventsList(); };
+
+            LoadEventsList();
+
             UpdateSearch = new BaseCommand(_updateSearchExecute, _updateSearchCanExecute);
 
             var emptyCompany = new Company() { Name = "All" };
@@ -110,6 +112,12 @@ namespace CertifyMe.Client.ViewModel
             List<Company> companies = new List<Company>(_companyClient.GetAll());
             companies.Insert(0, emptyCompany);
             Companies = companies.ToArray();
+        }
+
+        public virtual void LoadEventsList()
+        {
+            Events = _eventClient.GetAll();
+            EventsResult = Events;
         }
 
 

@@ -32,13 +32,12 @@ namespace CertifyMe.Client
 
             this.DataContext = viewModel;
 
-            EventsListFrame.Content = new UserHomePage();
+            EventsListFrame.Content = new EventsListPage(new EventsListViewModel());
             ProfileFrame.Content = new UserProfilePage();
-            MyEventsFrame.Content = new UserEventsPage();
+            MyEventsFrame.Content = new EventsListPage(new UserEventsViewModel());
             MyCertificatesFrame.Content = new UserCertificatesPage();
             MyCompaniesFrame.Content = new UserCompaniesPage();
             LoginFrame.Content = viewModel.CurrentView;
-
         }
 
         public void CreateTestInstances()
