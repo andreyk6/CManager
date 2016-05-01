@@ -2,14 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CertifyMe.Client.Control"
-             mc:Ignorable="d" 
-             MaxWidth="{Binding SystemParameters.PrimaryScreenWidth}">
-    <Grid>
-        <StackPanel>
-            <TextBlock TextWrapping="Wrap" Text="{Binding Text}" TextAlignment="Center" FontSize="14"/>
-            <TextBlock Text="{Binding CreationTime}" TextAlignment="Left" FontSize="12"/>
-        </StackPanel>
-    </Grid>
+             mc:Ignorable="d">
+    <materialDesign:Card>
+        <DockPanel Margin="5">
+            <TextBlock Grid.Row="0" DockPanel.Dock="Top" TextWrapping="Wrap" Text="{Binding Text}" FontSize="14"/>
+            <TextBlock Grid.Row="1" DockPanel.Dock="Bottom" Text="{Binding CreationTime}" TextAlignment="Left" FontSize="12"/>
+        </DockPanel>
+    </materialDesign:Card>
 </UserControl>

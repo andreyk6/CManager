@@ -5,8 +5,9 @@ namespace CertifyMe.Client.ViewModel
 {
     public class SystemUser : INotifyPropertyChanged
     {
-        protected SystemUser() { }
 
+        #region [ Singleton ]
+        protected SystemUser() { }
         private static SystemUser _instance;
         public static SystemUser Instance
         {
@@ -17,7 +18,17 @@ namespace CertifyMe.Client.ViewModel
                 return _instance;
             }
         }
+        #endregion
 
+        #region [ Refresh event ]
+        private event RefreshEventHandler RefreshEvent;
+        public void Refresh()
+        {
+            RefreshEvent(null);
+        }
+        #endregion
+
+        #region [ INotifyPropertyChanged ]
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName)
         {
@@ -26,12 +37,14 @@ namespace CertifyMe.Client.ViewModel
                 PropertyChanged(Instance, new PropertyChangedEventArgs(propertyName));
             }
         }
+        #endregion
 
         private Guid _id;
         public Guid Id
         {
             get { return _id; }
-            set {
+            set
+            {
                 if (_id == value)
                     return;
                 _id = value;

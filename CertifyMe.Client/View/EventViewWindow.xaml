@@ -3,47 +3,56 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:uc="clr-namespace:CertifyMe.Client.Control"
         xmlns:local="clr-namespace:CertifyMe.Client.View"
         mc:Ignorable="d"
         Title="EventViewWindow" Height="400" Width="400">
-    <StackPanel>
-        <Label FontSize="21" Content="{Binding Name}"/>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Location:"/>
-            <Label Content="{Binding Location}"/>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label FontSize="21" Content="{Binding Name}"/>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Location:"/>
+                <Label Content="{Binding Location}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Description:"/>
+                <Label Content="{Binding Description}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Dates:"/>
+                <Label Content="{Binding StartDate}"/>
+                <Label Content="-"/>
+                <Label Content="{Binding EndDate}"/>
+            </StackPanel>
+            <Button HorizontalAlignment="Right" Content="{Binding SubscribeBtnText}" Command="{Binding Subscribe}"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Description:"/>
-            <TextBlock Text="{Binding Description}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label Content="Dates:"/>
-            <Label Content="{Binding StartDate}"/>
-            <Label Content="-"/>
-            <Label Content="{Binding EndDate}"/>
-        </StackPanel>
-        <Button HorizontalAlignment="Right" Content="{Binding SubscribeBtnText}" Command="{Binding Subscribe}"/>
-        <TabControl>
-            <TabItem Header="Comments">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="75px"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <ListBox Grid.Row="1" ItemsSource="{Binding Comments}" Background="Aqua">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <uc:CommentControl/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
-                    <StackPanel Grid.Row="0">
-                        <TextBox TextWrapping="Wrap" Height="40px" Text="{Binding CommentText}"/>
-                        <Button Content="Comment" Command="{Binding Comment}" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Grid>
-            </TabItem>
-        </TabControl>
-    </StackPanel>
+        <materialDesign:Underline/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="75px"/>
+            </Grid.RowDefinitions>
+            <ListView Grid.Row="0" HorizontalAlignment="Stretch" ItemsSource="{Binding Comments}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <uc:CommentControl Margin="5"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Grid.Row="1">
+                <TextBox TextWrapping="Wrap" materialDesign:TextFieldAssist.Hint="Comment text..." Height="40px" Text="{Binding CommentText}"/>
+                <Button Content="Submit" Command="{Binding Comment}" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
 </Window>

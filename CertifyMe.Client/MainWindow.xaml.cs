@@ -5,6 +5,7 @@ using CertifyMe.Client.UserServiceReference;
 using System;
 using CertifyMe.Client.View;
 using CertifyMe.Client.ViewModel;
+using MaterialDesignThemes.Wpf;
 
 namespace CertifyMe.Client
 {
@@ -20,7 +21,8 @@ namespace CertifyMe.Client
         public MainWindow()
         {
             InitializeComponent();
-
+            var ph = new PaletteHelper();
+            //ph.ReplacePrimaryColor("Lime");
 
             if (userService.GetAll().Length == 0)
             {

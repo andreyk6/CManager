@@ -3,42 +3,24 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:qc="http://QuickConverter.CodePlex.com/"
       xmlns:local="clr-namespace:CertifyMe.Client.View"
       mc:Ignorable="d"
+      Background="{DynamicResource MaterialDesignPaper}"
       Title="LoginPage">
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Page.Resources>
-    <Grid Background="#7F000000">
-        <DockPanel Margin="5" MaxHeight="235" MaxWidth="300" Background="White">
-            <Grid DockPanel.Dock="Top" Height="100">
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                        <GradientStop Color="White" Offset="0.912"/>
-                        <GradientStop Color="#FF673AB7"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
-                <Label Margin="0,10,0,0"  HorizontalAlignment="Center" Content="Certify.Me" FontSize="40" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="White">
-                    <Label.Effect>
-                        <DropShadowEffect/>
-                    </Label.Effect>
-                </Label>
-            </Grid>
-            <StackPanel Margin="10">
-                <DockPanel Margin="0,5">
-                    <Label DockPanel.Dock="Left" Content="User name: "/>
-                    <TextBox Name="userName" Text="{Binding Path=UserName}"/>
-                </DockPanel>
-                <DockPanel Margin="0,5">
-                    <Label DockPanel.Dock="Left" Content="Password: "/>
-                    <PasswordBox Name="userPassword" PasswordChar="*" KeyUp="userPassword_KeyUp"/>
-                </DockPanel>
-                <DockPanel Margin="0,5">
-                    <Button Name="SignUp" Click="SignUp_Click" Width="100" Content="Sign Up"/>
-                    <Button Name="Signin" Click="Signin_Click" HorizontalAlignment="Right" Width="100" Content="Sign In" IsEnabled="{Binding SignInCanExecute}"/>
-                </DockPanel>
-            </StackPanel>
-        </DockPanel>
+    <Grid>
+        <StackPanel Margin="5" MaxHeight="235" MaxWidth="300">
+            <Label Margin="0,10,0,0"  HorizontalAlignment="Center" FontWeight="Bold" Content="Certify.Me" FontSize="40"/>
+            <TextBox Name="userName" materialDesign:TextFieldAssist.Hint="Login" Text="{Binding Path=UserName}"/>
+            <PasswordBox Name="userPassword" materialDesign:TextFieldAssist.Hint="Password" PasswordChar="*" KeyUp="userPassword_KeyUp"/>
+            <DockPanel Margin="0,5">
+                <Button Name="SignUp" Click="SignUp_Click" Width="100" Content="Sign Up"/>
+                <Button Name="Signin" Click="Signin_Click" HorizontalAlignment="Right" Width="100" Content="Sign In" IsEnabled="{Binding SignInCanExecute}"/>
+            </DockPanel>
+        </StackPanel>
     </Grid>
 </Page>
