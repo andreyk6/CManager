@@ -6,11 +6,16 @@
       xmlns:local="clr-namespace:CertifyMe.Client.View"
       xmlns:uc="clr-namespace:CertifyMe.Client.Control"
       xmlns:System="clr-namespace:System;assembly=mscorlib"
+      Background="{DynamicResource MaterialDesignBackground}"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="UserHomePage">
-    <DockPanel>
-        <StackPanel Margin="5" DockPanel.Dock="Right" MinWidth="200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="5" Grid.Column="1" MinWidth="200">
             <Label Content="Company:"/>
             <ComboBox ItemsSource="{Binding Companies}" SelectedItem="{Binding SelectedCompany}">
                 <ComboBox.ItemTemplate>
@@ -28,22 +33,17 @@
 
             <Button Margin="5" Content="Update" Command="{Binding UpdateSearch}" />
         </StackPanel>
-        <ScrollViewer DockPanel.Dock="Left">
-            <StackPanel>
-                <ListView x:Name="EventsList" HorizontalContentAlignment="Center" ItemsSource="{Binding EventsResult}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <uc:EventInfoShort/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                    <ListView.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="3"/>
-                        </ItemsPanelTemplate>
-                    </ListView.ItemsPanel>
-                </ListView>
-            </StackPanel>
-        </ScrollViewer>
-
-    </DockPanel>
+        <ListView Margin="5" x:Name="EventsList" HorizontalContentAlignment="Center" ItemsSource="{Binding EventsResult}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <uc:EventInfoShort/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="3"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+    </Grid>
 </Page>

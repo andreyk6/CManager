@@ -13,46 +13,49 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Label FontSize="21" Content="{Binding Name}"/>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Location:"/>
-                <Label Content="{Binding Location}"/>
+        <materialDesign:Card  Grid.Row="0">
+            <StackPanel>
+                <Label FontSize="21" Content="{Binding Name}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Location:"/>
+                    <Label Content="{Binding Location}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Description:"/>
+                    <Label Content="{Binding Description}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Dates:"/>
+                    <Label Content="{Binding StartDate}"/>
+                    <Label Content="-"/>
+                    <Label Content="{Binding EndDate}"/>
+                </StackPanel>
+                <Button HorizontalAlignment="Right" Content="{Binding SubscribeBtnText}" Command="{Binding Subscribe}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Description:"/>
-                <Label Content="{Binding Description}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Dates:"/>
-                <Label Content="{Binding StartDate}"/>
-                <Label Content="-"/>
-                <Label Content="{Binding EndDate}"/>
-            </StackPanel>
-            <Button HorizontalAlignment="Right" Content="{Binding SubscribeBtnText}" Command="{Binding Subscribe}"/>
-        </StackPanel>
-        <materialDesign:Underline/>
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="75px"/>
-            </Grid.RowDefinitions>
-            <ListView Grid.Row="0" HorizontalAlignment="Stretch" ItemsSource="{Binding Comments}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <uc:CommentControl Margin="5"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <StackPanel Grid.Row="1">
-                <TextBox TextWrapping="Wrap" materialDesign:TextFieldAssist.Hint="Comment text..." Height="40px" Text="{Binding CommentText}"/>
-                <Button Content="Submit" Command="{Binding Comment}" HorizontalAlignment="Right"/>
-            </StackPanel>
-        </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card  Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="75px"/>
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" HorizontalAlignment="Stretch" ItemsSource="{Binding Comments}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <uc:CommentControl Margin="5"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackPanel Grid.Row="1">
+                    <TextBox TextWrapping="Wrap" materialDesign:TextFieldAssist.Hint="Comment text..." Height="40px" Text="{Binding CommentText}"/>
+                    <Button Content="Submit" Command="{Binding Comment}" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
     </Grid>
 </Window>

@@ -21,9 +21,7 @@ namespace CertifyMe.Client
         public MainWindow()
         {
             InitializeComponent();
-            var ph = new PaletteHelper();
-            //ph.ReplacePrimaryColor("Lime");
-
+            
             if (userService.GetAll().Length == 0)
             {
                 CreateTestInstances();
