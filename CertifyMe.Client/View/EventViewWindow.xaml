@@ -6,56 +6,60 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:uc="clr-namespace:CertifyMe.Client.Control"
         xmlns:local="clr-namespace:CertifyMe.Client.View"
-        mc:Ignorable="d"
-        Title="EventViewWindow" Height="400" Width="400">
-    <Grid Margin="5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <materialDesign:Card  Grid.Row="0">
-            <StackPanel>
-                <Label FontSize="21" Content="{Binding Name}"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Location:"/>
-                    <Label Content="{Binding Location}"/>
+        Background="{DynamicResource MaterialDesignPaper}"
+        Title="Event details"
+        Icon="icon.ico"
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+        mc:Ignorable="d" Width="400"  Height="300">
+    <Grid>
+        <dragablz:TabablzControl>
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController />
+            </dragablz:TabablzControl.InterTabController>
+            <TabItem Header="Info">
+                <StackPanel Margin="5">
+                    <Label FontSize="21" Content="{Binding Name}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Location:"/>
+                        <Label Content="{Binding Location}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Description:"/>
+                        <Label Content="{Binding Description}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Dates:"/>
+                        <Label Content="{Binding StartDate}"/>
+                        <Label Content="-"/>
+                        <Label Content="{Binding EndDate}"/>
+                    </StackPanel>
+                    <Button HorizontalAlignment="Right" Content="{Binding SubscribeBtnText}" Command="{Binding Subscribe}"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Description:"/>
-                    <Label Content="{Binding Description}"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Dates:"/>
-                    <Label Content="{Binding StartDate}"/>
-                    <Label Content="-"/>
-                    <Label Content="{Binding EndDate}"/>
-                </StackPanel>
-                <Button HorizontalAlignment="Right" Content="{Binding SubscribeBtnText}" Command="{Binding Subscribe}"/>
-            </StackPanel>
-        </materialDesign:Card>
-        <materialDesign:Card  Grid.Row="1">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="75px"/>
-                </Grid.RowDefinitions>
-                <ListView Grid.Row="0" HorizontalAlignment="Stretch" ItemsSource="{Binding Comments}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <uc:CommentControl Margin="5"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-                <StackPanel Grid.Row="1">
-                    <TextBox TextWrapping="Wrap" materialDesign:TextFieldAssist.Hint="Comment text..." Height="40px" Text="{Binding CommentText}"/>
-                    <Button Content="Submit" Command="{Binding Comment}" HorizontalAlignment="Right"/>
-                </StackPanel>
-            </Grid>
-        </materialDesign:Card>
+            </TabItem>
+            <TabItem Header="Comments">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ListView Grid.Row="1" Background="{DynamicResource MaterialDesignPaper}" HorizontalAlignment="Stretch" ItemsSource="{Binding Comments}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <uc:CommentControl Margin="5"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <StackPanel Grid.Row="0">
+                        <TextBox Margin="0,5" TextWrapping="Wrap" materialDesign:TextFieldAssist.Hint="Comment text..." Height="40px" Text="{Binding CommentText}"/>
+                        <Button Content="Submit" Command="{Binding Comment}" HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </dragablz:TabablzControl>
     </Grid>
 </Window>

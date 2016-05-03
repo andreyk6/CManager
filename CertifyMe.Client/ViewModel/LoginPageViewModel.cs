@@ -49,6 +49,8 @@ namespace CertifyMe.Client.ViewModel
         public LoginPageViewModel()
         {
             _userService = new UserServiceClient();
+            UserName = "login1";
+            Password = "password";
         }
 
         public bool SignInCanExecute
