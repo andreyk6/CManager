@@ -16,7 +16,7 @@
                 <TextBlock Text=" - " FontSize="12"/>
                 <TextBlock Text="{Binding EndDate}" FontSize="12"/>
             </StackPanel>
-            <Button x:Name="Details" Click="Details_Click" Margin="0,5,0,0" HorizontalAlignment="Right" Width="80" Content="Details"/>
+            <Button Style="{DynamicResource MaterialDesignFlatButton}" x:Name="Details" Click="Details_Click" Margin="0,5,0,0" HorizontalAlignment="Right" Width="80" Content="Details"/>
         </StackPanel>
     </materialDesign:Card>
 </UserControl>

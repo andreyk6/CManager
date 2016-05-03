@@ -56,7 +56,7 @@
                     </ListView>
                     <StackPanel Grid.Row="0">
                         <TextBox Margin="0,5" TextWrapping="Wrap" materialDesign:TextFieldAssist.Hint="Comment text..." Height="40px" Text="{Binding CommentText}"/>
-                        <Button Content="Submit" Command="{Binding Comment}" HorizontalAlignment="Right"/>
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}" Content="Submit" Command="{Binding Comment}" HorizontalAlignment="Right"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
