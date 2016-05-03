@@ -14,7 +14,7 @@
         <ListView BorderBrush="{x:Null}"
                   Background="{DynamicResource MaterialDesignPaper}" 
                   HorizontalAlignment="Stretch" 
-                  ItemsSource="{Binding Compansies}" 
+                  ItemsSource="{Binding Companies}" 
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
@@ -29,7 +29,7 @@
         </ListView>
         <materialDesign:DialogHost>
             <materialDesign:DialogHost.DialogContent>
-                <Page/>
+                <Label Content="Hello"/>
             </materialDesign:DialogHost.DialogContent>
             <Button Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" 
             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
