@@ -97,8 +97,14 @@
     <Compile Include="ViewModel\UserEventsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
+    <Compile Include="View\CompanyCreatePage.xaml.cs">
+      <DependentUpon>CompanyCreatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CompanyViewWindow.xaml.cs">
       <DependentUpon>CompanyViewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\EventCreatePage.xaml.cs">
+      <DependentUpon>EventCreatePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\EventViewWindow.xaml.cs">
       <DependentUpon>EventViewWindow.xaml</DependentUpon>
@@ -162,7 +168,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\CompanyCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\CompanyViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\EventCreatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
