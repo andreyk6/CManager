@@ -15,6 +15,17 @@ namespace CertifyMe.Client.ViewModel
         private EventServiceClient _eventService;
 
         private Event _event;
+        public Event Event
+        {
+            get { return _event; }
+            set
+            {
+                if (value == _event)
+                    return;
+                _event = value;
+                OnPropertyChanged("Event");
+            }
+        }
         public string Name
         {
             get { return _event.Name; }
@@ -176,7 +187,7 @@ namespace CertifyMe.Client.ViewModel
         public EventViewModel(Guid eventId)
         {
             _eventService = new EventServiceClient();
-            _event = _eventService.GetById(eventId);
+            Event = _eventService.GetById(eventId);
 
             Comments = _eventService.GetComments(eventId).ToList();
             Participants = _eventService.GetParticipants(eventId).ToList();
