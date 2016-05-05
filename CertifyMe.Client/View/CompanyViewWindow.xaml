@@ -1,0 +1,51 @@
+﻿<Window x:Class="CertifyMe.Client.View.CompanyViewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:uc="clr-namespace:CertifyMe.Client.Control"
+        xmlns:local="clr-namespace:CertifyMe.Client.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
+        Icon="icon.ico"
+        Title="Company details">
+    <Grid>
+        <dragablz:TabablzControl>
+            <dragablz:TabablzControl.InterTabController>
+                <dragablz:InterTabController />
+            </dragablz:TabablzControl.InterTabController>
+            <TabItem Header="Info">
+                <StackPanel Margin="5">
+                    <Label FontSize="21" Content="{Binding CompanyName}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Description:"/>
+                        <Label Content="{Binding CompanyDescription}"/>
+                    </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Events">
+                <Grid>
+                <ListView Background="{DynamicResource MaterialDesignPaper}" HorizontalAlignment="Stretch" ItemsSource="{Binding Events}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <uc:EventInfoShort Margin="5"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                    <Button Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" 
+            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+            Margin="0,0,10,10" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                        <Grid>
+                            <Rectangle Fill="{DynamicResource MaterialDesignPaper}" Width="3" Height="25"/>
+                            <Rectangle Fill="{DynamicResource MaterialDesignPaper}" Width="25" Height="3"/>
+                        </Grid>
+                    </Button>
+                </Grid>
+            </TabItem>
+        </dragablz:TabablzControl>
+    </Grid>
+</Window>

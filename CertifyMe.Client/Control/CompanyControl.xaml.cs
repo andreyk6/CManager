@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CertifyMe.Client.CompanyServiceReference;
+using CertifyMe.Client.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,12 @@ namespace CertifyMe.Client.Control
         public CompanyControl()
         {
             InitializeComponent();
+        }
+
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var companyViewWindow = new CompanyViewWindow(((Company)DataContext).Id);
+            companyViewWindow.Show();
         }
     }
 }
