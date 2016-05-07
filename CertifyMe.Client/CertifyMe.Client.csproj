@@ -86,6 +86,7 @@
       <DependentUpon>EventInfoShort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\BaseCommand.cs" />
+    <Compile Include="ViewModel\CompanyCreateViewModel.cs" />
     <Compile Include="ViewModel\CompanyViewModel.cs" />
     <Compile Include="ViewModel\EventViewModel.cs" />
     <Compile Include="ViewModel\IPageViewModel.cs" />

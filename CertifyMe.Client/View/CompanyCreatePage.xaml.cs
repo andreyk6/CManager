@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CertifyMe.Client.CompanyServiceReference;
+using CertifyMe.Client.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,17 @@ namespace CertifyMe.Client.View
     /// </summary>
     public partial class CompanyCreatePage : Page
     {
+        CompanyCreateViewModel model;
         public CompanyCreatePage()
         {
             InitializeComponent();
+            model = new CompanyCreateViewModel();
+            DataContext = model;
+        }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            model.CreateExecute();
         }
     }
 }
