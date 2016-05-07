@@ -2,6 +2,7 @@
 using CertifyMe.Client.View;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,17 @@ namespace CertifyMe.Client.Control
     /// </summary>
     public partial class CompanyControl : UserControl
     {
+        [Bindable(true)]
+        public Visibility RemoveButtonVisibility
+        {
+            get { return (Visibility)GetValue(RemoveButtonVisibilityProperty); }
+            set { SetValue(RemoveButtonVisibilityProperty, value); }
+        }
+
+        public static readonly DependencyProperty RemoveButtonVisibilityProperty =
+            DependencyProperty.Register("RemoveButtonVisibility", typeof(Visibility),
+              typeof(CompanyControl), new PropertyMetadata(Visibility.Collapsed));
+
         public CompanyControl()
         {
             InitializeComponent();
@@ -31,6 +43,15 @@ namespace CertifyMe.Client.Control
         {
             var companyViewWindow = new CompanyViewWindow(((Company)DataContext).Id);
             companyViewWindow.Show();
+        }
+
+        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CompanyServiceClient companyService = new CompanyServiceClient();
+            if (companyService.RemoveById(((Company)DataContext).Id))
+            {
+                this.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }
