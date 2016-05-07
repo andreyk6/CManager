@@ -86,28 +86,28 @@
       <DependentUpon>EventInfoShort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\BaseCommand.cs" />
-    <Compile Include="ViewModel\CompanyCreateViewModel.cs" />
-    <Compile Include="ViewModel\CompanyViewModel.cs" />
-    <Compile Include="ViewModel\EventViewModel.cs" />
+    <Compile Include="ViewModel\Company\CompanyCreateViewModel.cs" />
+    <Compile Include="ViewModel\Company\CompanyViewModel.cs" />
+    <Compile Include="ViewModel\Event\EventViewModel.cs" />
     <Compile Include="ViewModel\IPageViewModel.cs" />
     <Compile Include="ViewModel\IWindowViewModel.cs" />
     <Compile Include="ViewModel\RegistrationPageViewModel.cs" />
     <Compile Include="ViewModel\SystemUser.cs" />
-    <Compile Include="ViewModel\EventsListViewModel.cs" />
-    <Compile Include="ViewModel\UserCompaniesViewModel.cs" />
-    <Compile Include="ViewModel\UserEventsViewModel.cs" />
+    <Compile Include="ViewModel\Event\EventsListViewModel.cs" />
+    <Compile Include="ViewModel\Company\UserCompaniesViewModel.cs" />
+    <Compile Include="ViewModel\Event\UserEventsViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
-    <Compile Include="View\CompanyCreatePage.xaml.cs">
+    <Compile Include="View\Company\CompanyCreatePage.xaml.cs">
       <DependentUpon>CompanyCreatePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CompanyViewWindow.xaml.cs">
+    <Compile Include="View\Company\CompanyViewWindow.xaml.cs">
       <DependentUpon>CompanyViewWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EventCreatePage.xaml.cs">
+    <Compile Include="View\Event\EventCreatePage.xaml.cs">
       <DependentUpon>EventCreatePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EventViewWindow.xaml.cs">
+    <Compile Include="View\Event\EventViewWindow.xaml.cs">
       <DependentUpon>EventViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginPage.xaml.cs">
@@ -136,10 +136,10 @@
     <Compile Include="View\UserCertificatesPage.xaml.cs">
       <DependentUpon>UserCertificatesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserCompaniesPage.xaml.cs">
+    <Compile Include="View\Company\UserCompaniesPage.xaml.cs">
       <DependentUpon>UserCompaniesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\EventsListPage.xaml.cs">
+    <Compile Include="View\Event\EventsListPage.xaml.cs">
       <DependentUpon>EventsListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserProfilePage.xaml.cs">
@@ -169,19 +169,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\CompanyCreatePage.xaml">
+    <Page Include="View\Company\CompanyCreatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\CompanyViewWindow.xaml">
+    <Page Include="View\Company\CompanyViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EventCreatePage.xaml">
+    <Page Include="View\Event\EventCreatePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EventViewWindow.xaml">
+    <Page Include="View\Event\EventViewWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,11 +197,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserCompaniesPage.xaml">
+    <Page Include="View\Company\UserCompaniesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\EventsListPage.xaml">
+    <Page Include="View\Event\EventsListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
