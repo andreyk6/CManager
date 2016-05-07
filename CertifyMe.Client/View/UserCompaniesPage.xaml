@@ -23,13 +23,16 @@
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:CompanyControl Margin="5"/>
+                    <uc:CompanyControl Margin="5" RemoveButtonVisibility="Visible"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <materialDesign:DialogHost>
             <materialDesign:DialogHost.DialogContent>
-                <Label Content="Hello"/>
+                <StackPanel>
+                    <Button HorizontalAlignment="Right" Content="X" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
+                    <Frame Source="CompanyCreatePage.xaml"/>
+                </StackPanel>
             </materialDesign:DialogHost.DialogContent>
             <Button Style="{DynamicResource MaterialDesignFloatingActionAccentButton}" 
             Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
