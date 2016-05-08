@@ -57,6 +57,13 @@ namespace CertifyMe.Service
         {
             if (Data.Company.Items.Keys.Contains(id))
             {
+                var events = Data.Company.Items[id].Events;
+                var eventsRegistrations = Data.EventRegistration.Items.Where(r => events.Contains(r.Value.Event)).ToList();
+                //Remove all registations records
+                eventsRegistrations.ForEach(r => Data.EventRegistration.Items.Remove(r.Value.Id));
+                //Remove all events
+                events.ForEach(e => Data.Event.Items.Remove(e.Id));
+                //Remove company
                 return Data.Company.Items.Remove(id);
             }
             return false;
