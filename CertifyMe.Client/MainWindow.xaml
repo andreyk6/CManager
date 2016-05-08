@@ -10,7 +10,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CertifyMe.Client"
         mc:Ignorable="d"
-        Icon="icon.ico"
+        Icon="pack://application:,,,/Resourse/icon.ico"
         Title="CertifyMe" MinHeight="400" MinWidth="400">
     <Grid>
         <DockPanel>

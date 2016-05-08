@@ -7,8 +7,8 @@
         xmlns:uc="clr-namespace:CertifyMe.Client.Control"
         xmlns:local="clr-namespace:CertifyMe.Client.View"
         Background="{DynamicResource MaterialDesignPaper}"
+        Icon="pack://application:,,,/Resourse/icon.ico"
         Title="Event details"
-        Icon="icon.ico"
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
         mc:Ignorable="d" Width="400"  Height="300">
     <Grid>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CertifyMe.Client.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         xmlns:dragablz="http://dragablz.net/winfx/xaml/dragablz"
-        Icon="icon.ico"
+        Icon="pack://application:,,,/Resourse/icon.ico"
         Title="Company details">
     <Grid>
         <dragablz:TabablzControl>
