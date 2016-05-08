@@ -1,5 +1,6 @@
 ﻿using CertifyMe.Client.CompanyServiceReference;
 using CertifyMe.Client.View;
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,34 +25,86 @@ namespace CertifyMe.Client.Control
     public partial class CompanyControl : UserControl
     {
         [Bindable(true)]
-        public Visibility RemoveButtonVisibility
+        public Visibility AdminButtonsVisibility
         {
-            get { return (Visibility)GetValue(RemoveButtonVisibilityProperty); }
-            set { SetValue(RemoveButtonVisibilityProperty, value); }
+            get { return (Visibility)GetValue(AdminButtonsVisibilityProperty); }
+            set { SetValue(AdminButtonsVisibilityProperty, value); }
         }
 
-        public static readonly DependencyProperty RemoveButtonVisibilityProperty =
-            DependencyProperty.Register("RemoveButtonVisibility", typeof(Visibility),
+        public static readonly DependencyProperty AdminButtonsVisibilityProperty =
+            DependencyProperty.Register("AdminButtonsVisibility", typeof(Visibility),
               typeof(CompanyControl), new PropertyMetadata(Visibility.Collapsed));
+
+        private Company CurrentCompany
+        {
+            get
+            {
+                return (Company)DataContext;
+            }
+        }
 
         public CompanyControl()
         {
             InitializeComponent();
         }
 
-        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        private void ViewBtn_Click(object sender, RoutedEventArgs e)
         {
-            var companyViewWindow = new CompanyViewWindow(((Company)DataContext).Id);
+            var companyViewWindow = new CompanyViewWindow(CurrentCompany.Id);
             companyViewWindow.Show();
         }
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
         {
-            CompanyServiceClient companyService = new CompanyServiceClient();
-            if (companyService.RemoveById(((Company)DataContext).Id))
+            using (CompanyServiceClient companyService = new CompanyServiceClient())
             {
-                this.Visibility = Visibility.Collapsed;
+                if (companyService.RemoveById(CurrentCompany.Id))
+                {
+                    this.Visibility = Visibility.Collapsed;
+                }
             }
+        }
+
+        private async void EditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            using (CompanyServiceClient companyService = new CompanyServiceClient())
+            {
+                if (companyService.Update(CurrentCompany))
+                {
+                    this.DataContext = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void EditDialogHost_DialogClosing(object sender, DialogClosingEventArgs eventArgs)
+        {
+            //Close button event
+            if (!Equals(eventArgs.Parameter, true)) return;
+
+            //Data validation
+
+            if (!UpdateCompanyInfo())
+            {
+                eventArgs.Cancel();
+            }
+        }
+
+        private bool UpdateCompanyInfo()
+        {
+            var oldName = CurrentCompany.Name;
+            var oldDescription = CurrentCompany.Description;
+            CurrentCompany.Name = EditDialog_Name.Text;
+            CurrentCompany.Description = EditDialog_Description.Text;
+            using (CompanyServiceClient companyService = new CompanyServiceClient())
+            {
+                if (!companyService.Update(CurrentCompany))
+                {
+                    CurrentCompany.Name = oldName;
+                    CurrentCompany.Description = oldDescription;
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

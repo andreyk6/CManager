@@ -86,6 +86,7 @@
       <DependentUpon>EventInfoShort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\BaseCommand.cs" />
+    <Compile Include="ViewModel\Company\CompanyEditViewModel.cs" />
     <Compile Include="ViewModel\Company\CompanyCreateViewModel.cs" />
     <Compile Include="ViewModel\Company\CompanyViewModel.cs" />
     <Compile Include="ViewModel\Event\EventViewModel.cs" />
@@ -100,6 +101,9 @@
     <Compile Include="ViewModel\WindowViewModel.cs" />
     <Compile Include="View\Company\CompanyCreatePage.xaml.cs">
       <DependentUpon>CompanyCreatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Company\CompanyEditPage.xaml.cs">
+      <DependentUpon>CompanyEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Company\CompanyViewWindow.xaml.cs">
       <DependentUpon>CompanyViewWindow.xaml</DependentUpon>
@@ -170,6 +174,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Company\CompanyCreatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Company\CompanyEditPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -351,7 +359,7 @@
     <Folder Include="Resourse\Styles\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icon.ico" />
+    <Resource Include="Resourse\icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\icon.ico" />
