@@ -50,7 +50,12 @@ namespace CertifyMe.Service
         {
             if (Event.Items.Keys.Contains(id))
             {
-                Event.Items.Remove(id);
+                var @event = Event.Items[id];
+                //Remove all registrations
+                var eventRegistrations = EventRegistration.Items.Values.Where(r => r.Event == @event).ToList();
+                eventRegistrations.ForEach(r => EventRegistration.Items.Remove(r.Id));
+                //Remove event
+                Event.Items.Remove(@event.Id);
                 return true;
             }
             return false;
