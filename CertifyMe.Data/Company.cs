@@ -40,7 +40,17 @@ namespace CertifyMe.Data
         [IgnoreDataMember]
         public List<Event> Events
         {
-            get { return Event.Items.Values.Where(e => e.Company == this).ToList(); }
+            get
+            {
+                try
+                {
+                    return Event.Items.Values.Where(e => e.Company == this).ToList();
+                }
+                catch
+                {
+                    return new List<Event>();
+                }
+            }
         }
     }
 }
