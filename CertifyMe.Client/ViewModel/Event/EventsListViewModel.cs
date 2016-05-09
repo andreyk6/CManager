@@ -111,23 +111,23 @@ namespace CertifyMe.Client.ViewModel
             LoadCompaniesList();
         }
 
-        private void LoadCompaniesList()
+        private async void LoadCompaniesList()
         {
             var emptyCompany = new Company() { Name = "All" };
             SelectedCompany = emptyCompany;
 
-            List<Company> companies = new List<Company>(_companyClient.GetAll());
+            List<Company> companies = new List<Company>(await _companyClient.GetAllAsync());
             companies.Insert(0, emptyCompany);
             Companies = companies.ToArray();
         }
 
-        public virtual void LoadEventsList()
+        public async virtual void LoadEventsList()
         {
-            Events = _eventClient.GetAll();
+            Events = await _eventClient.GetAllAsync();
             EventsResult = Events;
         }
 
-
+        #region UpdateSearchCommand
         private bool _updateSearchCanExecute(object parameter)
         {
             return true;
@@ -147,5 +147,6 @@ namespace CertifyMe.Client.ViewModel
         }
 
         public ICommand UpdateSearch { get; set; }
+        #endregion
     }
 }

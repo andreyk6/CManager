@@ -38,9 +38,9 @@ namespace CertifyMe.Client.ViewModel
             LoadCompaniesList();
         }
 
-        public virtual void LoadCompaniesList()
+        public async virtual void LoadCompaniesList()
         {
-            Companies = _companyClient.GetUserCompanies(SystemUser.Instance.Id);
+            Companies = await _companyClient.GetUserCompaniesAsync(SystemUser.Instance.Id);
         }
     }
 }

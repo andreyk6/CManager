@@ -9,9 +9,9 @@ namespace CertifyMe.Client.ViewModel
 {
     public class UserEventsViewModel : EventsListViewModel
     {
-        public override void LoadEventsList()
+        public async override void LoadEventsList()
         {
-            Events = _eventClient.GetUserEvents(SystemUser.Instance.Id);
+            Events = await _eventClient.GetUserEventsAsync(SystemUser.Instance.Id);
             EventsResult = Events;
         }
     }
