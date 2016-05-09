@@ -120,5 +120,10 @@ namespace CertifyMe.Client
                 userService.Add(user);
             }
         }
+
+        private void RefreshBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SystemUser.Instance.Refresh();
+        }
     }
 }

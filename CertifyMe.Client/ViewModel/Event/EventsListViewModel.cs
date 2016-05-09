@@ -41,7 +41,6 @@ namespace CertifyMe.Client.ViewModel
             }
         }
 
-
         Company[] _companies;
         public Company[] Companies
         {
@@ -101,11 +100,19 @@ namespace CertifyMe.Client.ViewModel
         public EventsListViewModel()
         {
             SystemUser.Instance.PropertyChanged += (o, args) => { if (args.PropertyName == "Id") LoadEventsList(); };
-
-            LoadEventsList();
+            SystemUser.Instance.RefreshEvent += (e) =>
+                        {
+                            LoadEventsList();
+                            LoadCompaniesList();
+                        };
 
             UpdateSearch = new BaseCommand(_updateSearchExecute, _updateSearchCanExecute);
+            LoadEventsList();
+            LoadCompaniesList();
+        }
 
+        private void LoadCompaniesList()
+        {
             var emptyCompany = new Company() { Name = "All" };
             SelectedCompany = emptyCompany;
 

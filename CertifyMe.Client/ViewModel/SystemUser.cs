@@ -21,7 +21,7 @@ namespace CertifyMe.Client.ViewModel
         #endregion
 
         #region [ Refresh event ]
-        private event RefreshEventHandler RefreshEvent;
+        public event RefreshEventHandler RefreshEvent;
         public void Refresh()
         {
             RefreshEvent(null);

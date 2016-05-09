@@ -33,6 +33,8 @@ namespace CertifyMe.Client.ViewModel
                 if (args.PropertyName == "Id") LoadCompaniesList();
             };
 
+            SystemUser.Instance.RefreshEvent += (e) => LoadCompaniesList();
+
             LoadCompaniesList();
         }
 
